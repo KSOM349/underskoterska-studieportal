@@ -1,19 +1,13 @@
 <!DOCTYPE html>
 <html lang="sv">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8">
   <title>Lämna in arbete – Undersköterska</title>
 </head>
 <body>
 
   <header>
-    <nav>
-  <p>
-    <a href="index.html">🏠 Start</a> |
-    <a href="uppgifter.html">📋 Uppgifter</a>
-  </p>
-</nav>
-<h1>Lämna in arbete</h1>
+    <h1>Lämna in arbete</h1>
     <p>
       Här lämnar du in grupparbeten för undersköterskeutbildningen.
       Ingen inloggning krävs.
@@ -22,14 +16,7 @@
 
   <main>
 
-    <label>
-  Skriv ert arbete direkt här (valfritt):<br>
-  <textarea name="arbete" rows="10" cols="60"
-    placeholder="Skriv era tankar, diskussion eller sammanfattning här...">
-  </textarea>
-</label>
-<br><br>
-<form>
+    <form>
 
       <label>
         Namn:<br>
@@ -41,10 +28,9 @@
         Grupp:<br>
         <select name="grupp" required>
           <option value="">Välj grupp</option>
-          <option>Grupp A</option>
+          <option>Grupp A – Almaz, Samru, Ammanuel, Senait, Kaled</option>
           <option>Grupp B</option>
           <option>Grupp C</option>
-          <option>Grupp D</option>
         </select>
       </label>
       <br><br>
@@ -66,8 +52,15 @@
       <br><br>
 
       <label>
-        Ladda upp fil:<br>
-        <input type="file" name="fil" required>
+        Skriv ert arbete här (eller lämna tomt om ni laddar upp fil):<br>
+        <textarea name="arbete" rows="8" cols="50"
+          placeholder="Skriv ert arbete här..."></textarea>
+      </label>
+      <br><br>
+
+      <label>
+        Ladda upp fil (valfritt):<br>
+        <input type="file" name="fil">
       </label>
       <br><br>
 
@@ -90,3 +83,4 @@
 
 </body>
 </html>
+
