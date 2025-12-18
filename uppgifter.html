@@ -1,76 +1,79 @@
 <!DOCTYPE html>
 <html lang="sv">
 <head>
-  <meta charset="UTF-8">
-  <title>Uppgifter – Studieportal</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="UTF-8">
+<title>Uppgifter</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background: #f7fafc;
-      margin: 0;
-    }
-
-    header {
-      background: #065f46;
-      color: white;
-      padding: 16px;
-    }
-
-    nav a {
-      color: white;
-      margin-right: 16px;
-      text-decoration: none;
-      font-weight: bold;
-    }
-
-    main {
-      max-width: 900px;
-      margin: 40px auto;
-      padding: 0 16px;
-    }
-
-    .card {
-      background: white;
-      padding: 20px;
-      border-radius: 10px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-      margin-bottom: 24px;
-    }
-  </style>
+<style>
+body{font-family:system-ui;background:#f4fdf9;margin:0;}
+header{background:#065f46;color:white;padding:14px;}
+nav a{color:white;margin-right:14px;text-decoration:none;font-weight:600;}
+main{max-width:900px;margin:20px auto;padding:0 14px;}
+.card{
+  background:white;
+  padding:16px;
+  border-radius:10px;
+  margin-bottom:16px;
+  box-shadow:0 4px 10px rgba(0,0,0,.08);
+}
+input,select,textarea{
+  width:100%;
+  padding:10px;
+  margin-bottom:10px;
+}
+</style>
 </head>
 
 <body>
 
 <header>
-  <strong>Undersköterska – Studieportal</strong><br>
-  <nav>
-    <a href="index.html">Start</a>
-    <a href="uppgifter.html">Uppgifter</a>
-    <a href="submit.html">Lämna in</a>
-  </nav>
+<nav>
+<a href="index.html">Start</a>
+<a href="kurser.html">Kurser</a>
+<a href="submit.html">Lämna in</a>
+</nav>
 </header>
 
 <main>
 
-  <div class="card">
-    <h2>Grupp A – Uppgifter</h2>
-    <ul>
-      <li>
-        <strong>Uppgift 1:</strong> Grupparbete – Äldre och omsorg  
-        <br><em>Status:</em> Pågående
-      </li>
-    </ul>
-  </div>
+<div class="card">
+<h2>Våra uppgifter (Grupp A)</h2>
 
-  <div class="card">
-    <h2>Övriga uppgifter</h2>
-    <p>
-      Här samlas uppgifter som delas via WhatsApp eller i klassrummet.
-    </p>
-    <p><em>Inga uppgifter tillagda ännu.</em></p>
-  </div>
+<label>Uppgiftens namn</label>
+<input>
+
+<label>Kurs</label>
+<select>
+<option>Social omsorg 1</option>
+<option>Social omsorg 2</option>
+</select>
+
+<label>Datum</label>
+<input type="date">
+
+<label>Anteckningar</label>
+<textarea rows="4"></textarea>
+
+<label>Ladda upp PDF</label>
+<input type="file" accept="application/pdf">
+</div>
+
+<div class="card">
+<h2>Övriga uppgifter</h2>
+
+<label>Namn</label>
+<input>
+
+<label>Grupp</label>
+<input>
+
+<label>Beskrivning</label>
+<textarea rows="4"></textarea>
+
+<label>PDF (valfritt)</label>
+<input type="file" accept="application/pdf">
+</div>
 
 </main>
 
