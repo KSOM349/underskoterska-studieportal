@@ -2,58 +2,77 @@
 <html lang="sv">
 <head>
   <meta charset="UTF-8">
-  <title>Uppgifter – Undersköterska</title>
+  <title>Uppgifter – Studieportal</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f7fafc;
+      margin: 0;
+    }
+
+    header {
+      background: #065f46;
+      color: white;
+      padding: 16px;
+    }
+
+    nav a {
+      color: white;
+      margin-right: 16px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    main {
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 0 16px;
+    }
+
+    .card {
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      margin-bottom: 24px;
+    }
+  </style>
 </head>
+
 <body>
 
-  <header>
-    <h1>Uppgifter</h1>
+<header>
+  <strong>Undersköterska – Studieportal</strong><br>
+  <nav>
+    <a href="index.html">Start</a>
+    <a href="uppgifter.html">Uppgifter</a>
+    <a href="submit.html">Lämna in</a>
+  </nav>
+</header>
+
+<main>
+
+  <div class="card">
+    <h2>Grupp A – Uppgifter</h2>
+    <ul>
+      <li>
+        <strong>Uppgift 1:</strong> Grupparbete – Äldre och omsorg  
+        <br><em>Status:</em> Pågående
+      </li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h2>Övriga uppgifter</h2>
     <p>
-      Den här sidan används internt av gruppen för att samla uppgifter
-      som delas via WhatsApp eller i klassrummet.
+      Här samlas uppgifter som delas via WhatsApp eller i klassrummet.
     </p>
-  </header>
+    <p><em>Inga uppgifter tillagda ännu.</em></p>
+  </div>
 
-  <main>
-
-    <section>
-      <h2>Social omsorg 1</h2>
-
-      <h3>Grupparbete – Äldre och omsorg</h3>
-      <p><strong>Instruktion:</strong></p>
-      <p>
-        Klistra in uppgiften här när den delas av läraren.
-      </p>
-
-      <p><em>Uppgift ej tillagd ännu.</em></p>
-    </section>
-
-    <hr>
-
-    <section>
-      <h2>Social omsorg 2</h2>
-
-      <h3>Grupparbete – Etik och bemötande</h3>
-      <p><strong>Instruktion:</strong></p>
-      <p>
-        Klistra in uppgiften här när den delas av läraren.
-      </p>
-
-      <p><em>Uppgift ej tillagd ännu.</em></p>
-    </section>
-
-    <p>
-      <a href="index.html">← Tillbaka till studieportalen</a>
-    </p>
-
-  </main>
-
-  <footer>
-    <small>
-      Intern studieyta för grupparbete. Ingen inloggning krävs.
-    </small>
-  </footer>
+</main>
 
 </body>
 </html>
-
