@@ -102,8 +102,7 @@ main{max-width:900px;margin:20px auto;padding:0 14px;}
 
 <h2>Kurser i utbildningen</h2>
 
-<div class="course"><span>Social omsorg 1</span><span class="active">🟢 Aktiv</span></div>
-<div class="course"><span>Social omsorg 2</span><span class="active">🟢 Aktiv</span></div>
+<div id="kurser-list"></div>
 
 <div class="course"><span>Anatomi och fysiologi 1</span><span class="inactive">⚪ Ej aktiv</span></div>
 <div class="course"><span>Anatomi och fysiologi 2</span><span class="inactive">⚪ Ej aktiv</span></div>
@@ -124,5 +123,24 @@ main{max-width:900px;margin:20px auto;padding:0 14px;}
 </main>
 
 <script type="module" src="firebase.js"></script>
+<script type="module">
+  import { loadKurser } from "./firebase.js";
+
+  const container = document.getElementById("kurser-list");
+
+  loadKurser().then(kurser => {
+    container.innerHTML = "";
+    kurser.forEach(kurs => {
+      container.innerHTML += `
+        <div class="kurs">
+          <strong>${kurs.name}</strong>
+          <span style="color:${kurs.aktiv ? 'green' : 'gray'}">
+            ${kurs.aktiv ? 'Aktiv' : 'Ej aktiv'}
+          </span>
+        </div>
+      `;
+    });
+  });
+</script>
 </body>
 </html>
