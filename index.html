@@ -3,219 +3,104 @@
 <head>
   <meta charset="UTF-8">
   <title>Undersköterska – Studieportal</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <style>
     body {
       margin: 0;
       font-family: Arial, sans-serif;
-      background: #f0fdfa;
-      color: #1f2937;
+      background: linear-gradient(120deg, #e6fffa, #f7fafc);
+      color: #1a202c;
     }
 
-    /* ===== TOP BAR ===== */
-    .topbar {
-      background: #0f766e;
-      color: white;
-      padding: 6px 20px;
-      font-size: 14px;
-    }
-
-    /* ===== HEADER ===== */
     header {
-      background: white;
-      border-bottom: 1px solid #cbd5e1;
-      padding: 14px 20px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    header h1 {
-      margin: 0;
-      font-size: 20px;
-      color: #065f46;
+      background: #065f46;
+      color: white;
+      padding: 16px;
     }
 
     nav a {
-      margin-left: 16px;
+      color: white;
+      margin-right: 16px;
       text-decoration: none;
-      color: #065f46;
       font-weight: bold;
-      padding: 6px 8px;
-      border-radius: 4px;
     }
 
-    nav a:hover {
-      background: #ccfbf1;
-    }
-
-    /* ===== MAIN ===== */
     main {
       max-width: 900px;
-      margin: 30px auto;
+      margin: 40px auto;
+      padding: 0 16px;
+    }
+
+    h1, h2 {
+      color: #065f46;
+    }
+
+    .card {
       background: white;
-      padding: 30px;
-      border-radius: 8px;
-    }
-
-    section {
-      margin-bottom: 40px;
-    }
-
-    h2 {
-      border-left: 4px solid #14b8a6;
-      padding-left: 10px;
-      color: #065f46;
-    }
-
-    button {
-      background: #14b8a6;
-      color: white;
-      border: none;
-      padding: 10px 16px;
-      border-radius: 6px;
-      cursor: pointer;
-      font-size: 14px;
-    }
-
-    button:hover {
-      background: #0f766e;
-    }
-
-    .btn-secondary {
-      background: #e6fffa;
-      color: #065f46;
-      border: 1px solid #99f6e4;
-      margin-left: 10px;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      margin-bottom: 24px;
     }
 
     footer {
       text-align: center;
-      padding: 20px;
-      font-size: 13px;
-      color: #475569;
+      font-size: 14px;
+      color: #4a5568;
+      margin: 40px 0;
     }
 
-    hr {
-      border: none;
-      border-top: 1px solid #e5e7eb;
-      margin: 30px 0;
+    .btn {
+      display: inline-block;
+      padding: 10px 16px;
+      background: #3182ce;
+      color: white;
+      text-decoration: none;
+      border-radius: 6px;
+      font-weight: bold;
     }
   </style>
 </head>
 
 <body>
 
-  <!-- TOP BAR -->
-  <div class="topbar">
-    Studieportal – Undersköterska
+<header>
+  <strong>Undersköterska – Studieportal</strong><br>
+  <nav>
+    <a href="index.html">Start</a>
+    <a href="uppgifter.html">Uppgifter</a>
+    <a href="submit.html">Lämna in</a>
+    <a href="https://gleerupsportal.se/min-sida" target="_blank">Kursbok</a>
+  </nav>
+</header>
+
+<main>
+
+  <div class="card">
+    <h1>Välkommen</h1>
+    <p>
+      Den här studieportalen är skapad för att göra det enklare för gruppen
+      att läsa uppgifter och lämna in arbeten – utan stress och utan förvirring.
+    </p>
   </div>
 
-  <!-- HEADER -->
-  <header>
-    <h1>Undersköterska – Studieportal</h1>
-    <nav>
-      <a href="#start">Start</a>
-      <a href="#uppgifter">Uppgifter</a>
-      <a href="#inlamning">Lämna in</a>
-      <a href="https://gleerupsportal.se/min-sida" target="_blank">Kursbok</a>
-    </nav>
-  </header>
+  <div class="card">
+    <h2>Kursbok</h2>
+    <p>
+      Allt kursmaterial finns i Gleerups.  
+      Inloggningsuppgifter delas i gruppen.
+    </p>
+    <a class="btn" href="https://gleerupsportal.se/min-sida" target="_blank">
+      📘 Öppna Gleerups
+    </a>
+  </div>
 
-  <!-- MAIN CONTENT -->
-  <main>
+</main>
 
-    <!-- START -->
-    <section id="start">
-      <h2>Välkommen</h2>
-      <p>
-        Den här studieportalen är skapad för att göra det enklare
-        för gruppen att läsa uppgifter och lämna in arbeten,
-        utan stress och utan förvirring.
-      </p>
-    </section>
-
-    <hr>
-
-    <!-- UPPGIFTER -->
-    <section id="uppgifter">
-      <h2>Uppgifter</h2>
-
-      <h3>Social omsorg 1</h3>
-      <p><strong>Grupparbete – Äldre och omsorg</strong></p>
-      <p><em>Uppgift ej tillagd ännu.</em></p>
-
-      <h3>Social omsorg 2</h3>
-      <p><strong>Grupparbete – Etik och bemötande</strong></p>
-      <p><em>Uppgift ej tillagd ännu.</em></p>
-    </section>
-
-    <hr>
-
-    <!-- INLÄMNING -->
-    <section id="inlamning">
-      <h2>Lämna in arbete</h2>
-
-      <form>
-
-        <p>
-          <label>Namn:<br>
-            <input type="text" required>
-          </label>
-        </p>
-
-        <p>
-          <label>Grupp:<br>
-            <select required>
-              <option value="">Välj grupp</option>
-              <option>Grupp A – Almaz, Samru, Ammanuel, Senait, Kaled</option>
-              <option>Grupp B</option>
-              <option>Grupp C</option>
-            </select>
-          </label>
-        </p>
-
-        <p>
-          <label>Kurs:<br>
-            <select required>
-              <option value="">Välj kurs</option>
-              <option>Social omsorg 1</option>
-              <option>Social omsorg 2</option>
-            </select>
-          </label>
-        </p>
-
-        <p>
-          <label>Skriv ert arbete:<br>
-            <textarea rows="6"></textarea>
-          </label>
-        </p>
-
-        <p>
-          <label>Ladda upp PDF (valfritt):<br>
-            <input type="file" accept="application/pdf">
-          </label>
-        </p>
-
-        <button type="submit">Skicka in arbete</button>
-
-        <!-- WhatsApp -->
-        <a href="https://chat.whatsapp.com/XXXXXXXX"
-           target="_blank"
-           class="btn-secondary">
-          💬 Gå till WhatsApp-gruppen
-        </a>
-
-      </form>
-    </section>
-
-  </main>
-
-  <!-- FOOTER -->
-  <footer>
-    Studieportal skapad av studenter för utbildningssyfte · Ingen inloggning krävs
-  </footer>
+<footer>
+  Studieportal skapad av studenter · Ingen inloggning krävs
+</footer>
 
 </body>
 </html>
-
