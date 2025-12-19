@@ -176,29 +176,13 @@ button:hover, .btn-mail:hover {
 </div>
 
 <!-- 🔹 Firebase logic -->
-<script type="module">
-  import { saveUppgift } from "./firebase.js";
-
-  const form = document.getElementById("uppgiftForm");
-
-  form.addEventListener("submit", async (e) => {
+<script>
+  document.getElementById("uppgiftForm").addEventListener("submit", function(e) {
     e.preventDefault();
-
-    const data = {
-      gruppnamn: document.getElementById("gruppnamn").value,
-      medlemmar: document.getElementById("medlemmar").value,
-      uppgiftNamn: document.getElementById("uppgiftNamn").value,
-      kurs: document.getElementById("kurs").value,
-      datum: document.getElementById("datum").value,
-      deadline: document.getElementById("deadline").value,
-      anteckningar: document.getElementById("anteckningar").value
-    };
-
-    await saveUppgift(data);
-    alert("Uppgiften sparad ✅");
-    form.reset();
+    alert("JS works ✅");
   });
 </script>
+
 
 </body>
 </html>
