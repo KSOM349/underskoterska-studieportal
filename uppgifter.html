@@ -7,33 +7,42 @@
 
 <style>
 body {
+  margin: 0;
   font-family: Arial, sans-serif;
   background: #eef4f1;
-  margin: 0;
 }
 
-header {
+nav {
   background: linear-gradient(90deg, #1b5e20, #1e88e5);
+  padding: 14px 20px;
+}
+
+nav a {
   color: white;
-  padding: 16px;
-  font-size: 20px;
+  margin-right: 16px;
+  text-decoration: none;
+  font-weight: bold;
 }
 
 .container {
   max-width: 900px;
   margin: 30px auto;
+}
+
+.card {
   background: white;
-  border-radius: 10px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-  padding: 20px;
+  padding: 24px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
 }
 
 .section-title {
   background: #1b5e20;
   color: white;
-  padding: 12px;
-  border-radius: 6px;
+  padding: 14px;
+  border-radius: 8px;
   margin-bottom: 20px;
+  font-size: 20px;
 }
 
 label {
@@ -44,9 +53,9 @@ label {
 
 input, select, textarea {
   width: 100%;
-  padding: 8px;
+  padding: 10px;
   margin-top: 6px;
-  border-radius: 5px;
+  border-radius: 6px;
   border: 1px solid #ccc;
 }
 
@@ -59,11 +68,11 @@ input, select, textarea {
 .buttons {
   margin-top: 20px;
   display: flex;
-  gap: 10px;
+  gap: 12px;
 }
 
 button {
-  padding: 10px 16px;
+  padding: 10px 18px;
   border: none;
   border-radius: 6px;
   cursor: pointer;
@@ -84,7 +93,7 @@ button {
   background: #1e88e5;
   color: white;
   text-decoration: none;
-  padding: 10px 16px;
+  padding: 10px 18px;
   border-radius: 6px;
   display: inline-block;
 }
@@ -97,64 +106,100 @@ button:hover, .btn-mail:hover {
 
 <body>
 
-<header>
-  Start · Kurser · Uppgifter · Lämna in
-</header>
+<nav>
+  <a href="./index.html">Start</a>
+  <a href="./kurser.html">Kurser</a>
+  <a href="./uppgifter.html">Uppgifter</a>
+  <a href="./submit.html">Lämna in</a>
+</nav>
 
 <div class="container">
-  <div class="section-title">Våra uppgifter – Grupp A</div>
+  <div class="card">
 
-  <form id="uppgiftForm">
-    <label>Gruppnamn</label>
-    <input type="text" placeholder="Grupp A">
+    <div class="section-title">Våra uppgifter – Grupp A</div>
 
-    <label>Gruppmedlemmar</label>
-    <input type="text" placeholder="Ahmed, Sara, Lina">
+    <form id="uppgiftForm">
 
-    <label>Uppgiftens namn</label>
-    <input type="text" placeholder="Skriv uppgiftens namn">
+      <label>Gruppnamn</label>
+      <input id="gruppnamn" type="text" placeholder="Grupp A">
 
-    <label>Kurs</label>
-    <select>
-      <option>Social omsorg 1</option>
-      <option>Social omsorg 2</option>
-      <option>Anatomi och fysiologi 1</option>
-      <option>Anatomi och fysiologi 2</option>
-      <option>Funktionsförmåga 1</option>
-      <option>Funktionsförmåga 2</option>
-      <option>Gerontologi och geriatrik</option>
-    </select>
+      <label>Gruppmedlemmar</label>
+      <input id="medlemmar" type="text" placeholder="Ahmed, Sara, Lina">
 
-    <div class="row">
-      <div>
-        <label>Datum</label>
-        <input type="date">
+      <label>Uppgiftens namn</label>
+      <input id="uppgiftNamn" type="text" placeholder="Skriv uppgiftens namn">
+
+      <label>Kurs</label>
+      <select id="kurs">
+        <option>Social omsorg 1</option>
+        <option>Social omsorg 2</option>
+        <option>Anatomi och fysiologi 1</option>
+        <option>Anatomi och fysiologi 2</option>
+        <option>Funktionsförmåga och funktionsnedsättning 1</option>
+        <option>Funktionsförmåga och funktionsnedsättning 2</option>
+        <option>Gerontologi och geriatrik</option>
+      </select>
+
+      <div class="row">
+        <div>
+          <label>Datum</label>
+          <input id="datum" type="date">
+        </div>
+        <div>
+          <label>Deadline</label>
+          <input id="deadline" type="date">
+        </div>
       </div>
-      <div>
-        <label>Deadline</label>
-        <input type="date">
+
+      <label>Anteckningar</label>
+      <textarea id="anteckningar" rows="4"
+        placeholder="Skriv anteckningar här..."></textarea>
+
+      <label>Ladda upp PDF</label>
+      <input type="file">
+
+      <p style="margin-top:16px;">
+        Lämna arbete via mejl:
+        <a class="btn-mail"
+           href="mailto:zeinamesso@integrelar.se">
+          Skicka mejl
+        </a>
+      </p>
+
+      <div class="buttons">
+        <button type="submit" class="btn-save">Spara</button>
+        <button type="reset" class="btn-reset">Rensa</button>
       </div>
-    </div>
 
-    <label>Anteckningar</label>
-    <textarea rows="4" placeholder="Skriv anteckningar här..."></textarea>
-
-    <label>Ladda upp PDF</label>
-    <input type="file">
-
-    <p>
-      Lämna arbete via mejl:
-      <a class="btn-mail" href="mailto:zeinamesso@integrelar.se">
-        Skicka mejl
-      </a>
-    </p>
-
-    <div class="buttons">
-      <button type="submit" class="btn-save">Spara</button>
-      <button type="reset" class="btn-reset">Rensa</button>
-    </div>
-  </form>
+    </form>
+  </div>
 </div>
+
+<!-- 🔹 Firebase logic -->
+<script type="module">
+  import { saveUppgift } from "./firebase.js";
+
+  const form = document.getElementById("uppgiftForm");
+
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    const data = {
+      gruppnamn: document.getElementById("gruppnamn").value,
+      medlemmar: document.getElementById("medlemmar").value,
+      uppgiftNamn: document.getElementById("uppgiftNamn").value,
+      kurs: document.getElementById("kurs").value,
+      datum: document.getElementById("datum").value,
+      deadline: document.getElementById("deadline").value,
+      anteckningar: document.getElementById("anteckningar").value
+    };
+
+    await saveUppgift(data);
+    alert("Uppgiften sparad ✅");
+    form.reset();
+  });
+</script>
 
 </body>
 </html>
+
