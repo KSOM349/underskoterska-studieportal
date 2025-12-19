@@ -1,166 +1,160 @@
 <!DOCTYPE html>
 <html lang="sv">
 <head>
-  <meta charset="UTF-8" />
-  <title>Uppgifter</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta charset="UTF-8">
+<title>Uppgifter – Grupp A</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #f1f8f4;
-    }
+<style>
+body {
+  font-family: Arial, sans-serif;
+  background: #eef4f1;
+  margin: 0;
+}
 
-    /* Header */
-    .section-title {
-      background: linear-gradient(90deg, #1b5e20, #43a047);
-      color: white;
-      padding: 16px;
-      text-align: center;
-      font-size: 22px;
-      border-radius: 0 0 12px 12px;
-    }
+header {
+  background: linear-gradient(90deg, #1b5e20, #1e88e5);
+  color: white;
+  padding: 16px;
+  font-size: 20px;
+}
 
-    .container {
-      max-width: 900px;
-      margin: 30px auto;
-      padding: 0 16px;
-    }
+.container {
+  max-width: 900px;
+  margin: 30px auto;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  padding: 20px;
+}
 
-    .card {
-      background: #ffffff;
-      padding: 20px;
-      border-radius: 10px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.08);
-      margin-bottom: 24px;
-    }
+.section-title {
+  background: #1b5e20;
+  color: white;
+  padding: 12px;
+  border-radius: 6px;
+  margin-bottom: 20px;
+}
 
-    label {
-      display: block;
-      margin-top: 14px;
-      font-weight: bold;
-    }
+label {
+  display: block;
+  margin-top: 14px;
+  font-weight: bold;
+}
 
-    input, select, textarea {
-      width: 100%;
-      padding: 10px;
-      margin-top: 6px;
-      border-radius: 6px;
-      border: 1px solid #ccc;
-      font-size: 14px;
-    }
+input, select, textarea {
+  width: 100%;
+  padding: 8px;
+  margin-top: 6px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
 
-    textarea {
-      min-height: 100px;
-      resize: vertical;
-    }
+.row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
 
-    .row {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 16px;
-    }
+.buttons {
+  margin-top: 20px;
+  display: flex;
+  gap: 10px;
+}
 
-    button {
-      margin-top: 16px;
-      background: #2e7d32;
-      color: white;
-      border: none;
-      padding: 12px 18px;
-      border-radius: 6px;
-      cursor: pointer;
-      font-size: 14px;
-    }
+button {
+  padding: 10px 16px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 15px;
+}
 
-    button:hover {
-      background: #1b5e20;
-    }
+.btn-save {
+  background: #2e7d32;
+  color: white;
+}
 
-    .mail-box {
-      margin-top: 16px;
-      padding: 12px;
-      background: #e8f5e9;
-      border-radius: 6px;
-    }
+.btn-reset {
+  background: #c62828;
+  color: white;
+}
 
-    .mail-box a {
-      color: #1b5e20;
-      font-weight: bold;
-      text-decoration: none;
-    }
+.btn-mail {
+  background: #1e88e5;
+  color: white;
+  text-decoration: none;
+  padding: 10px 16px;
+  border-radius: 6px;
+  display: inline-block;
+}
 
-    .actions {
-      display: flex;
-      gap: 10px;
-      margin-top: 12px;
-    }
-  </style>
+button:hover, .btn-mail:hover {
+  opacity: 0.9;
+}
+</style>
 </head>
 
 <body>
 
-  <div class="section-title">
-    Våra uppgifter – Grupp A
-  </div>
+<header>
+  Start · Kurser · Uppgifter · Lämna in
+</header>
 
-  <div class="container">
+<div class="container">
+  <div class="section-title">Våra uppgifter – Grupp A</div>
 
-    <div class="card">
+  <form id="uppgiftForm">
+    <label>Gruppnamn</label>
+    <input type="text" placeholder="Grupp A">
 
-      <label>Gruppnamn</label>
-      <input type="text" placeholder="Grupp A" />
+    <label>Gruppmedlemmar</label>
+    <input type="text" placeholder="Ahmed, Sara, Lina">
 
-      <label>Gruppmedlemmar</label>
-      <input type="text" placeholder="Ahmed, Sara, Lina" />
+    <label>Uppgiftens namn</label>
+    <input type="text" placeholder="Skriv uppgiftens namn">
 
-      <label>Uppgiftens namn</label>
-      <input type="text" placeholder="Skriv uppgiftens namn" />
+    <label>Kurs</label>
+    <select>
+      <option>Social omsorg 1</option>
+      <option>Social omsorg 2</option>
+      <option>Anatomi och fysiologi 1</option>
+      <option>Anatomi och fysiologi 2</option>
+      <option>Funktionsförmåga 1</option>
+      <option>Funktionsförmåga 2</option>
+      <option>Gerontologi och geriatrik</option>
+    </select>
 
-      <label>Kurs</label>
-      <select>
-        <option>Social omsorg 1</option>
-        <option>Social omsorg 2</option>
-        <option>Anatomi och fysiologi 1</option>
-        <option>Anatomi och fysiologi 2</option>
-        <option>Funktionsförmåga och funktionsnedsättning 1</option>
-        <option>Funktionsförmåga och funktionsnedsättning 2</option>
-        <option>Gerontologi och geriatrik</option>
-      </select>
-
-      <div class="row">
-        <div>
-          <label>Datum</label>
-          <input type="date" />
-        </div>
-        <div>
-          <label>Deadline</label>
-          <input type="date" />
-        </div>
+    <div class="row">
+      <div>
+        <label>Datum</label>
+        <input type="date">
       </div>
-
-      <label>Anteckningar</label>
-      <textarea placeholder="Skriv anteckningar här..."></textarea>
-
-      <label>Ladda upp PDF</label>
-      <input type="file" accept="application/pdf" />
-
-      <div class="mail-box">
-        Lämna arbete via mejl:
-        <a href="mailto:zeinamesso@integrelar.se">
-          zeinamesso@integrelar.se
-        </a>
+      <div>
+        <label>Deadline</label>
+        <input type="date">
       </div>
-
-      <div class="actions">
-        <button>Spara</button>
-        <button style="background:#9e9e9e;">Rensa</button>
-      </div>
-
     </div>
 
-  </div>
+    <label>Anteckningar</label>
+    <textarea rows="4" placeholder="Skriv anteckningar här..."></textarea>
+
+    <label>Ladda upp PDF</label>
+    <input type="file">
+
+    <p>
+      Lämna arbete via mejl:
+      <a class="btn-mail" href="mailto:zeinamesso@integrelar.se">
+        Skicka mejl
+      </a>
+    </p>
+
+    <div class="buttons">
+      <button type="submit" class="btn-save">Spara</button>
+      <button type="reset" class="btn-reset">Rensa</button>
+    </div>
+  </form>
+</div>
 
 </body>
 </html>
-
