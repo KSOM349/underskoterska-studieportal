@@ -1,146 +1,57 @@
 <!DOCTYPE html>
 <html lang="sv">
 <head>
-<meta charset="UTF-8">
-<title>Kurser</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8">
+  <title>Kurser – Undersköterska Studieportal</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-#kurs-lista {
-  display: grid;
-  gap: 16px;
-}
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f7f6;
+      margin: 0;
+      padding: 20px;
+    }
 
-.kurskort {
-  padding: 16px;
-  border-radius: 10px;
-  background: #f5f5f5;
-}
+    h1 {
+      text-align: center;
+      color: #2f6f4e;
+    }
 
-.kurskort.aktiv {
-  border-left: 6px solid #2e7d32;
-  background: #e8f5e9;
-}
+    .kurs {
+      background: #fff;
+      border-radius: 8px;
+      padding: 15px;
+      margin-bottom: 12px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+    }
 
-.kurskort.inaktiv {
-  border-left: 6px solid #9e9e9e;
-  opacity: 0.7;
-}
-<style>
-body{font-family:system-ui; background:#f7fafc; margin:0;}
-header{background:#065f46;color:white;padding:14px;}
-nav a{color:white;margin-right:14px;text-decoration:none;font-weight:600;}
-main{max-width:900px;margin:20px auto;padding:0 14px;}
-.course{
-  background:white;
-  padding:14px;
-  border-radius:10px;
-  margin-bottom:12px;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  box-shadow:0 4px 8px rgba(0,0,0,.08);
-}
-.active{color:#065f46;font-weight:700;}
-.inactive{color:#777;}
-</style>
+    button {
+      padding: 6px 10px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      background: #2f6f4e;
+      color: white;
+    }
+
+    button:hover {
+      opacity: 0.9;
+    }
+  </style>
 </head>
 
-<h1>Kurser i utbildningen</h1>
-
-<div id="kurs-lista"></div>
-
-<script src="firebase.js" type="module"></script>
-<h1>Kurser</h1>
-<div id="kurs-lista"></div>
-
-<script type="module">
-  import { loadKurser, saveAktiv } from './firebase.js';
-
-  const el = document.getElementById('kurs-lista');
-
-  const render = async () => {
-    const kurser = await loadKurser();
-    el.innerHTML = '';
-    kurser.forEach(k => {
-      const box = document.createElement('div');
-      box.className = 'kurskort';
-      box.innerHTML = `
-        <h3>${k.name}</h3>
-        <label>
-          <input type="checkbox" ${k.aktiv ? 'checked' : ''} />
-          Aktiv
-        </label>
-        <button>Spara</button>
-        ${k.teacherEmail ? `<p><a href="mailto:${k.teacherEmail}">${k.teacherEmail}</a></p>` : ''}
-        ${k.deadline ? `<p>Deadline: ${k.deadline}</p>` : ''}
-      `;
-      const chk = box.querySelector('input');
-      const btn = box.querySelector('button');
-      btn.onclick = async () => {
-        await saveAktiv(k.id, chk.checked);
-        alert('Sparad');
-      };
-      el.appendChild(box);
-    });
-  };
-
-  render();
-</script>
-<script type="module" src="./firebase.js"></script>
 <body>
 
-<header>
-<nav>
-<a href="index.html">Start</a>
-<a href="kurser.html">Kurser</a>
-<a href="uppgifter.html">Uppgifter</a>
-<a href="submit.html">Lämna in</a>
-</nav>
-</header>
+  <h1>Kurser</h1>
 
-<main>
+  <!-- هنا Firebase راح يعرض الكورسات -->
+  <div id="kurser-list"></div>
 
-<h2>Kurser i utbildningen</h2>
+  <!-- ربط Firebase -->
+  <script type="module" src="./firebase.js"></script>
+  <script type="module" src="./kurser.js"></script>
 
-<div id="kurser-list"></div>
-
-<div class="course"><span>Anatomi och fysiologi 1</span><span class="inactive">⚪ Ej aktiv</span></div>
-<div class="course"><span>Anatomi och fysiologi 2</span><span class="inactive">⚪ Ej aktiv</span></div>
-<div class="course"><span>Funktionsförmåga och funktionsnedsättning 1</span><span class="inactive">⚪ Ej aktiv</span></div>
-<div class="course"><span>Funktionsförmåga och funktionsnedsättning 2</span><span class="inactive">⚪ Ej aktiv</span></div>
-<div class="course"><span>Gerontologi och geriatrik</span><span class="inactive">⚪ Ej aktiv</span></div>
-<div class="course"><span>Hälso- och sjukvård 1</span><span class="inactive">⚪ Ej aktiv</span></div>
-<div class="course"><span>Hälso- och sjukvård 2</span><span class="inactive">⚪ Ej aktiv</span></div>
-<div class="course"><span>Omvårdnad 1</span><span class="inactive">⚪ Ej aktiv</span></div>
-<div class="course"><span>Omvårdnad 2</span><span class="inactive">⚪ Ej aktiv</span></div>
-<div class="course"><span>Psykiatri 1</span><span class="inactive">⚪ Ej aktiv</span></div>
-<div class="course"><span>Psykiatri 2</span><span class="inactive">⚪ Ej aktiv</span></div>
-<div class="course"><span>Psykologi 1</span><span class="inactive">⚪ Ej aktiv</span></div>
-<div class="course"><span>Vård- och omsorg specialisering</span><span class="inactive">⚪ Ej aktiv</span></div>
-<div class="course"><span>Samhällskunskap 1a1</span><span class="inactive">⚪ Ej aktiv</span></div>
-<div class="course"><span>Svenska 1 / Svenska som andraspråk 1</span><span class="inactive">⚪ Ej aktiv</span></div>
-
-</main>
-
-<script type="module" src="firebase.js"></script>
-<script type="module">
-  import { loadKurser } from "./firebase.js";
-
-  const container = document.getElementById("kurser-list");
-
-  loadKurser().then(kurser => {
-    container.innerHTML = "";
-    kurser.forEach(kurs => {
-      container.innerHTML += `
-        <div class="kurs">
-          <strong>${kurs.name}</strong>
-          <span style="color:${kurs.aktiv ? 'green' : 'gray'}">
-            ${kurs.aktiv ? 'Aktiv' : 'Ej aktiv'}
-          </span>
-        </div>
-      `;
-    });
-  });
-</script>
 </body>
 </html>
+
