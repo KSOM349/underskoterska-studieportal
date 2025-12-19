@@ -1,115 +1,166 @@
 <!DOCTYPE html>
 <html lang="sv">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>Uppgifter</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <style>
-    .container {
-      max-width: 800px;
-      margin: 30px auto;
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f1f8f4;
     }
 
+    /* Header */
     .section-title {
-      background: #1b5e20;
+      background: linear-gradient(90deg, #1b5e20, #43a047);
       color: white;
+      padding: 16px;
+      text-align: center;
+      font-size: 22px;
+      border-radius: 0 0 12px 12px;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 30px auto;
+      padding: 0 16px;
+    }
+
+    .card {
+      background: #ffffff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+      margin-bottom: 24px;
+    }
+
+    label {
+      display: block;
+      margin-top: 14px;
+      font-weight: bold;
+    }
+
+    input, select, textarea {
+      width: 100%;
+      padding: 10px;
+      margin-top: 6px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      font-size: 14px;
+    }
+
+    textarea {
+      min-height: 100px;
+      resize: vertical;
+    }
+
+    .row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    button {
+      margin-top: 16px;
+      background: #2e7d32;
+      color: white;
+      border: none;
+      padding: 12px 18px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 14px;
+    }
+
+    button:hover {
+      background: #1b5e20;
+    }
+
+    .mail-box {
+      margin-top: 16px;
       padding: 12px;
+      background: #e8f5e9;
       border-radius: 6px;
     }
 
-    .uppgift-form {
-      background: #ffffff;
-      padding: 20px;
-      border-radius: 8px;
+    .mail-box a {
+      color: #1b5e20;
+      font-weight: bold;
+      text-decoration: none;
     }
 
-    .uppgift-form label {
-      display: block;
-      margin-bottom: 12px;
-    }
-
-    .uppgift-form input,
-    .uppgift-form select,
-    .uppgift-form textarea {
-      width: 100%;
-      padding: 8px;
-      margin-top: 4px;
+    .actions {
+      display: flex;
+      gap: 10px;
+      margin-top: 12px;
     }
   </style>
 </head>
 
 <body>
 
+  <div class="section-title">
+    Våra uppgifter – Grupp A
+  </div>
+
   <div class="container">
-    <h2 class="section-title">Våra uppgifter – Grupp A</h2>
 
-    <form class="uppgift-form">
-      <label>
-<label>
-  Gruppnamn
-  <input type="text" placeholder="مثال: Grupp A">
-</label>
+    <div class="card">
 
-<label>
-  Gruppmedlemmar
-  <input type="text" placeholder="Ahmed, Sara, Lina">
-</label>
+      <label>Gruppnamn</label>
+      <input type="text" placeholder="Grupp A" />
 
-        Uppgiftens namn
-        <input type="text" placeholder="Skriv uppgiftens namn">
-      </label>
+      <label>Gruppmedlemmar</label>
+      <input type="text" placeholder="Ahmed, Sara, Lina" />
 
-      <label>
-        Kurs
-        <select>
-  <option>Social omsorg 1</option>
-  <option>Social omsorg 2</option>
-  <option>Anatomi och fysiologi 1</option>
-  <option>Anatomi och fysiologi 2</option>
-  <option>Funktionsförmåga och funktionsnedsättning 1</option>
-  <option>Funktionsförmåga och funktionsnedsättning 2</option>
-  <option>Gerontologi och geriatrik</option>
-</select>
-<select>
-          <option>Social omsorg 1</option>
-          <option>Social omsorg 2</option>
-          <option>Anatomi och fysiologi 1</option>
-          <option>Anatomi och fysiologi 2</option>
-        </select>
-      </label>
+      <label>Uppgiftens namn</label>
+      <input type="text" placeholder="Skriv uppgiftens namn" />
 
-      <label>
-        Datum
-        <input type="date">
-      </label>
+      <label>Kurs</label>
+      <select>
+        <option>Social omsorg 1</option>
+        <option>Social omsorg 2</option>
+        <option>Anatomi och fysiologi 1</option>
+        <option>Anatomi och fysiologi 2</option>
+        <option>Funktionsförmåga och funktionsnedsättning 1</option>
+        <option>Funktionsförmåga och funktionsnedsättning 2</option>
+        <option>Gerontologi och geriatrik</option>
+      </select>
 
-      <label>
-        Deadline
-        <input type="date">
-      </label>
+      <div class="row">
+        <div>
+          <label>Datum</label>
+          <input type="date" />
+        </div>
+        <div>
+          <label>Deadline</label>
+          <input type="date" />
+        </div>
+      </div>
 
-      <label>
-        Anteckningar
-        <textarea rows="4" placeholder="Skriv anteckningar här..."></textarea>
-      </label>
+      <label>Anteckningar</label>
+      <textarea placeholder="Skriv anteckningar här..."></textarea>
 
-      <label>
-        Ladda upp PDF
-        <input type="file" accept="application/pdf">
-      </label>
+      <label>Ladda upp PDF</label>
+      <input type="file" accept="application/pdf" />
 
-      <div class="teacher-mail">
+      <div class="mail-box">
         Lämna arbete via mejl:
         <a href="mailto:zeinamesso@integrelar.se">
           zeinamesso@integrelar.se
         </a>
       </div>
 
-      <button type="button">Skicka</button>
-    </form>
+      <div class="actions">
+        <button>Spara</button>
+        <button style="background:#9e9e9e;">Rensa</button>
+      </div>
+
+    </div>
+
   </div>
 
 </body>
-
 </html>
+
