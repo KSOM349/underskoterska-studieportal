@@ -5,6 +5,48 @@
 <title>Uppgifter</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
+.container {
+  max-width: 800px;
+  margin: 30px auto;
+}
+
+.section-title {
+  background: #2e7d32;
+  color: white;
+  padding: 12px;
+  border-radius: 6px;
+}
+
+.uppgift-form {
+  background: #ffffff;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.uppgift-form label {
+  display: block;
+  margin-bottom: 12px;
+}
+
+.uppgift-form input,
+.uppgift-form select,
+.uppgift-form textarea {
+  width: 100%;
+  padding: 8px;
+  margin-top: 4px;
+}
+
+.teacher-mail {
+  margin: 12px 0;
+}
+
+button {
+  background: #2e7d32;
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  cursor: pointer;
+}
 <style>
 body{font-family:system-ui;background:#f4fdf9;margin:0;}
 header{background:#065f46;color:white;padding:14px;}
@@ -27,56 +69,56 @@ input,select,textarea{
 
 <body>
 
-<header>
-<nav>
-<a href="index.html">Start</a>
-<a href="kurser.html">Kurser</a>
-<a href="submit.html">Lämna in</a>
-</nav>
-</header>
+  <div class="container">
+    <h2 class="section-title">Våra uppgifter – Grupp A</h2>
 
-<main>
+    <form class="uppgift-form">
+      <label>
+        Uppgiftens namn
+        <input type="text" placeholder="Skriv uppgiftens namn">
+      </label>
 
-<div class="card">
-<h2>Våra uppgifter (Grupp A)</h2>
+      <label>
+        Kurs
+        <select>
+          <option>Social omsorg 1</option>
+          <option>Social omsorg 2</option>
+          <option>Anatomi och fysiologi 1</option>
+          <option>Anatomi och fysiologi 2</option>
+        </select>
+      </label>
 
-<label>Uppgiftens namn</label>
-<input>
+      <label>
+        Datum
+        <input type="date">
+      </label>
 
-<label>Kurs</label>
-<select>
-<option>Social omsorg 1</option>
-<option>Social omsorg 2</option>
-</select>
+      <label>
+        Deadline
+        <input type="date">
+      </label>
 
-<label>Datum</label>
-<input type="date">
+      <label>
+        Anteckningar
+        <textarea rows="4" placeholder="Skriv anteckningar här..."></textarea>
+      </label>
 
-<label>Anteckningar</label>
-<textarea rows="4"></textarea>
+      <label>
+        Ladda upp PDF
+        <input type="file" accept="application/pdf">
+      </label>
 
-<label>Ladda upp PDF</label>
-<input type="file" accept="application/pdf">
-</div>
+      <div class="teacher-mail">
+        Lämna arbete via mejl:
+        <a href="mailto:zeinamesso@integrelar.se">
+          zeinamesso@integrelar.se
+        </a>
+      </div>
 
-<div class="card">
-<h2>Övriga uppgifter</h2>
+      <button type="button">Skicka</button>
+    </form>
+  </div>
 
-<label>Namn</label>
-<input>
-
-<label>Grupp</label>
-<input>
-
-<label>Beskrivning</label>
-<textarea rows="4"></textarea>
-
-<label>PDF (valfritt)</label>
-<input type="file" accept="application/pdf">
-</div>
-
-</main>
-
-<script type="module" src="firebase.js"></script>
 </body>
+
 </html>
