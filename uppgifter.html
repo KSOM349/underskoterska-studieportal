@@ -1,70 +1,42 @@
 <!DOCTYPE html>
 <html lang="sv">
 <head>
-<meta charset="UTF-8">
-<title>Uppgifter</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8">
+  <title>Uppgifter</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-.container {
-  max-width: 800px;
-  margin: 30px auto;
-}
+  <style>
+    .container {
+      max-width: 800px;
+      margin: 30px auto;
+    }
 
-.section-title {
-  background: #2e7d32;
-  color: white;
-  padding: 12px;
-  border-radius: 6px;
-}
+    .section-title {
+      background: #1b5e20;
+      color: white;
+      padding: 12px;
+      border-radius: 6px;
+    }
 
-.uppgift-form {
-  background: #ffffff;
-  padding: 20px;
-  border-radius: 8px;
-}
+    .uppgift-form {
+      background: #ffffff;
+      padding: 20px;
+      border-radius: 8px;
+    }
 
-.uppgift-form label {
-  display: block;
-  margin-bottom: 12px;
-}
+    .uppgift-form label {
+      display: block;
+      margin-bottom: 12px;
+    }
 
-.uppgift-form input,
-.uppgift-form select,
-.uppgift-form textarea {
-  width: 100%;
-  padding: 8px;
-  margin-top: 4px;
-}
-
-.teacher-mail {
-  margin: 12px 0;
-}
-
-button {
-  background: #2e7d32;
-  color: white;
-  border: none;
-  padding: 10px 16px;
-  cursor: pointer;
-}
-<style>
-body{font-family:system-ui;background:#f4fdf9;margin:0;}
-header{background:#065f46;color:white;padding:14px;}
-nav a{color:white;margin-right:14px;text-decoration:none;font-weight:600;}
-main{max-width:900px;margin:20px auto;padding:0 14px;}
-.card{
-  background:white;
-  padding:16px;
-  border-radius:10px;
-  margin-bottom:16px;
-  box-shadow:0 4px 10px rgba(0,0,0,.08);
-}
-input,select,textarea{
-  width:100%;
-  padding:10px;
-  margin-bottom:10px;
-}
-</style>
+    .uppgift-form input,
+    .uppgift-form select,
+    .uppgift-form textarea {
+      width: 100%;
+      padding: 8px;
+      margin-top: 4px;
+    }
+  </style>
 </head>
 
 <body>
@@ -74,6 +46,16 @@ input,select,textarea{
 
     <form class="uppgift-form">
       <label>
+<label>
+  Gruppnamn
+  <input type="text" placeholder="مثال: Grupp A">
+</label>
+
+<label>
+  Gruppmedlemmar
+  <input type="text" placeholder="Ahmed, Sara, Lina">
+</label>
+
         Uppgiftens namn
         <input type="text" placeholder="Skriv uppgiftens namn">
       </label>
@@ -81,6 +63,15 @@ input,select,textarea{
       <label>
         Kurs
         <select>
+  <option>Social omsorg 1</option>
+  <option>Social omsorg 2</option>
+  <option>Anatomi och fysiologi 1</option>
+  <option>Anatomi och fysiologi 2</option>
+  <option>Funktionsförmåga och funktionsnedsättning 1</option>
+  <option>Funktionsförmåga och funktionsnedsättning 2</option>
+  <option>Gerontologi och geriatrik</option>
+</select>
+<select>
           <option>Social omsorg 1</option>
           <option>Social omsorg 2</option>
           <option>Anatomi och fysiologi 1</option>
