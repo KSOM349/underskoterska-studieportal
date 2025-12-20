@@ -1,168 +1,258 @@
 <!DOCTYPE html>
 <html lang="sv">
 <head>
-  <meta charset="UTF-8">
-  <title>Uppgifter</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8" />
+<title>Uppgifter – Grupp A</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      background: #f3f7f5;
-    }
+<style>
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  background: #f3f6f4;
+}
 
-    /* NAV */
-    nav {
-      background: linear-gradient(90deg, #1b5e20, #1e88e5);
-      padding: 14px 24px;
-      color: white;
-      font-size: 18px;
-    }
+header {
+  background: #1f8f5f;
+  color: white;
+  padding: 24px;
+  font-size: 28px;
+  font-weight: bold;
+}
 
-    nav a {
-      color: white;
-      text-decoration: none;
-      margin-right: 14px;
-      font-weight: bold;
-    }
+nav {
+  background: #e8efe9;
+  padding: 12px 20px;
+}
+nav a {
+  margin-right: 15px;
+  text-decoration: none;
+  color: #1f8f5f;
+  font-weight: 600;
+}
 
-    nav a:hover {
-      text-decoration: underline;
-    }
+.container {
+  max-width: 900px;
+  margin: 24px auto;
+  padding: 20px;
+}
 
-    /* CONTAINER */
-    .container {
-      max-width: 900px;
-      margin: 40px auto;
-      background: white;
-      padding: 24px;
-      border-radius: 12px;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.08);
-    }
+.section {
+  background: white;
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 24px;
+  box-shadow: 0 2px 6px rgba(0,0,0,.08);
+}
 
-    .section-title {
-      background: #1b5e20;
-      color: white;
-      padding: 14px;
-      border-radius: 8px;
-      margin-bottom: 20px;
-      font-size: 20px;
-    }
+h2 {
+  margin-top: 0;
+}
 
-    label {
-      font-weight: bold;
-      display: block;
-      margin-top: 14px;
-    }
+label {
+  font-weight: 600;
+  display: block;
+  margin-top: 12px;
+}
 
-    input, select, textarea {
-      width: 100%;
-      padding: 10px;
-      margin-top: 6px;
-      border-radius: 6px;
-      border: 1px solid #ccc;
-    }
+input, select, textarea {
+  width: 100%;
+  padding: 10px;
+  margin-top: 6px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 15px;
+}
 
-    .row {
-      display: flex;
-      gap: 20px;
-    }
+.button-row {
+  margin-top: 14px;
+  display: flex;
+  gap: 10px;
+}
 
-    .row > div {
-      flex: 1;
-    }
+button {
+  padding: 10px 18px;
+  border: none;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+}
 
-    button {
-      padding: 10px 18px;
-      border: none;
-      border-radius: 6px;
-      cursor: pointer;
-      font-size: 15px;
-    }
+.btn-save { background: #1f8f5f; color: white; }
+.btn-clear { background: #c0392b; color: white; }
 
-    .save {
-      background: #2e7d32;
-      color: white;
-    }
+.member-input {
+  display: flex;
+  gap: 8px;
+  margin-top: 10px;
+}
 
-    .reset {
-      background: #c62828;
-      color: white;
-      margin-left: 10px;
-    }
+.members-list {
+  margin-top: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
 
-    .mail-btn {
-      background: #1e88e5;
-      color: white;
-      margin-left: 10px;
-    }
+.member-chip {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #e9f6ef;
+  border-left: 4px solid #1f8f5f;
+  padding: 8px 12px;
+  border-radius: 6px;
+}
 
-    .actions {
-      margin-top: 20px;
-    }
-  </style>
+.member-chip button {
+  background: transparent;
+  color: #c0392b;
+  font-size: 16px;
+}
+
+.email-box {
+  background: #f1f5f3;
+  padding: 16px;
+  border-radius: 8px;
+}
+</style>
 </head>
+
 <body>
 
+<header>Uppgifter</header>
+
 <nav>
-  <a href="index.html">Start</a> ·
-  <a href="kurser.html">Kurser</a> ·
-  <a href="uppgifter.html">Uppgifter</a> ·
-  <a href="submit.html">Lämna in</a>
+  <a href="index.html">Start</a>
+  <a href="kurser.html">Kurser</a>
+  <a href="uppgifter.html">Uppgifter</a>
 </nav>
 
 <div class="container">
-  <div class="section-title">Våra uppgifter – Grupp A</div>
 
-  <label>Gruppnamn</label>
-  <input type="text" placeholder="Skriv gruppnamn">
+  <!-- SECTION 1 -->
+  <div class="section">
+    <h2>Våra uppgifter – Grupp A</h2>
 
-  <label>Gruppmedlemmar</label>
-  <input type="text" placeholder="Lägg till ditt namn, telefon, email">
+    <label>Group name</label>
+    <input id="groupName" type="text" placeholder="Enter group name">
 
-  <label>Uppgiftens namn</label>
-  <input type="text" placeholder="Skriv uppgiftens namn">
-
-  <label>Kurs</label>
-  <select>
-    <option>Social omsorg 1</option>
-    <option>Psykiatri 2</option>
-    <option>Anatomi och fysiologi 1</option>
-    <option>Anatomi och fysiologi 2</option>
-  </select>
-
-  <div class="row">
-    <div>
-      <label>Datum</label>
-      <input type="date">
-    </div>
-    <div>
-      <label>Deadline</label>
-      <input type="date">
+    <div class="button-row">
+      <button class="btn-save" onclick="saveGroup()">Save</button>
+      <button class="btn-clear" onclick="clearGroup()">Clear</button>
     </div>
   </div>
 
-  <label>Antec​kningar</label>
-  <textarea rows="4" placeholder="Skriv anteckningar här..."></textarea>
+  <!-- SECTION 2 -->
+  <div class="section">
+    <h2>Group members</h2>
 
-  <label>Ladda upp PDF</label>
-  <input type="file">
+    <div class="member-input">
+      <input id="memberName" type="text" placeholder="Name">
+      <input id="memberEmail" type="email" placeholder="Email (optional)">
+      <input id="memberPhone" type="text" placeholder="Phone (optional)">
+      <button class="btn-save" onclick="addMember()">Add</button>
+    </div>
 
-  <div class="actions">
-    <button class="save">Spara</button>
-    <button class="reset" type="reset">Rensa</button>
-    <a 
-  href="https://mail.google.com/mail/?view=cm&fs=1&to=zeinamesso@integrerar.se"
-  target="_blank"
->
-  Open email (Gmail)
-</a>
-
-      <button class="mail-btn" type="button">Skicka mejl</button>
-    </a>
+    <div id="membersList" class="members-list"></div>
   </div>
+
+  <!-- SECTION 3 -->
+  <div class="section">
+    <h2>Assignment</h2>
+
+    <label>Assignment name</label>
+    <input type="text">
+
+    <label>Course</label>
+    <select>
+      <option>Social omsorg 1</option>
+      <option>Social omsorg 2</option>
+      <option>Psykiatri 1</option>
+      <option>Psykiatri 2</option>
+      <option>Omvårdnad 1</option>
+      <option>Anatomi och fysiologi 1</option>
+    </select>
+
+    <label>Deadline</label>
+    <input type="date">
+
+    <label>Notes</label>
+    <textarea rows="4"></textarea>
+  </div>
+
+  <!-- SECTION 4 -->
+  <div class="section">
+    <h2>Send to teacher</h2>
+    <div class="email-box">
+      zeinamesso@integrerar.se<br><br>
+      <a target="_blank"
+         href="https://mail.google.com/mail/?view=cm&fs=1&to=zeinamesso@integrerar.se">
+         Open Gmail
+      </a>
+    </div>
+  </div>
+
 </div>
+
+<script>
+const membersKey = "group_members";
+const groupKey = "group_name";
+
+function saveGroup() {
+  localStorage.setItem(groupKey, document.getElementById("groupName").value);
+  alert("Saved");
+}
+
+function clearGroup() {
+  localStorage.clear();
+  location.reload();
+}
+
+function addMember() {
+  const name = memberName.value.trim();
+  if (!name) return;
+
+  const members = JSON.parse(localStorage.getItem(membersKey) || "[]");
+  members.push({
+    name,
+    email: memberEmail.value,
+    phone: memberPhone.value
+  });
+
+  localStorage.setItem(membersKey, JSON.stringify(members));
+  renderMembers();
+
+  memberName.value = "";
+  memberEmail.value = "";
+  memberPhone.value = "";
+}
+
+function removeMember(i) {
+  const members = JSON.parse(localStorage.getItem(membersKey));
+  members.splice(i,1);
+  localStorage.setItem(membersKey, JSON.stringify(members));
+  renderMembers();
+}
+
+function renderMembers() {
+  const list = document.getElementById("membersList");
+  list.innerHTML = "";
+
+  const members = JSON.parse(localStorage.getItem(membersKey) || "[]");
+  members.forEach((m,i)=>{
+    const div = document.createElement("div");
+    div.className = "member-chip";
+    div.innerHTML = `<span>${m.name}</span><button onclick="removeMember(${i})">✖</button>`;
+    list.appendChild(div);
+  });
+}
+
+window.onload = () => {
+  groupName.value = localStorage.getItem(groupKey) || "";
+  renderMembers();
+};
+</script>
 
 </body>
 </html>
