@@ -148,7 +148,24 @@
   });
 
   loadGroupName();
-</script>
+import { db } from "./firebase.js";
+import { collection, addDoc } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore.js";
+
+document.querySelector(".btn-save").addEventListener("click", async () => {
+  const gruppnamn = document.querySelector('input[placeholder="Skriv gruppens namn"]').value;
+
+  if (!gruppnamn) {
+    alert("Group name required");
+    return;
+  }
+
+  await addDoc(collection(db, "groups"), {
+    name: gruppnamn,
+    createdAt: new Date()
+  });
+
+  alert("Saved to Firebase ✅");
+});</script>
 
 </body>
 </html>
