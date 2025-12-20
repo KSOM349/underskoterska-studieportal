@@ -1,171 +1,268 @@
 <!DOCTYPE html>
 <html lang="sv">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>Uppgifter – Grupp A</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <style>
     body {
-      font-family: Arial, sans-serif;
-      background: #f4f7f6;
       margin: 0;
-      padding: 0;
+      font-family: Arial, sans-serif;
+      background: #f2f6f4;
     }
 
     header {
-      background: #1e8e6a;
-      color: white;
-      padding: 16px;
-      text-align: center;
+      background: #1b8f6a;
+      color: #fff;
+      padding: 24px;
+      font-size: 26px;
+      font-weight: bold;
+    }
+
+    nav {
+      background: linear-gradient(90deg, #1b5e20, #1e88e5);
+      padding: 12px 20px;
+    }
+
+    nav a {
+      color: #fff;
+      margin-right: 20px;
+      text-decoration: none;
+      font-weight: 500;
     }
 
     .container {
-      max-width: 800px;
+      max-width: 900px;
       margin: 30px auto;
-      padding: 16px;
+      padding: 0 16px;
     }
 
-    .section {
-      background: white;
-      padding: 20px;
-      border-radius: 8px;
-      margin-bottom: 20px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    .card {
+      background: #fff;
+      padding: 24px;
+      border-radius: 10px;
+      box-shadow: 0 6px 16px rgba(0,0,0,0.1);
+      margin-bottom: 30px;
+    }
+
+    h2 {
+      margin-top: 0;
     }
 
     label {
       display: block;
-      margin-top: 12px;
+      margin-top: 16px;
       font-weight: bold;
     }
 
-    input {
+    input, select, textarea {
       width: 100%;
-      padding: 8px;
+      padding: 10px;
       margin-top: 6px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      font-size: 15px;
     }
 
-    .button-row {
+    textarea {
+      resize: vertical;
+    }
+
+    .row {
+      display: flex;
+      gap: 12px;
+      margin-top: 16px;
+    }
+
+    .row button {
+      padding: 10px 18px;
+      border: none;
+      border-radius: 6px;
+      color: #fff;
+      font-size: 15px;
+      cursor: pointer;
+    }
+
+    .btn-save { background: #2e7d32; }
+    .btn-clear { background: #c62828; }
+    .btn-add { background: #1e88e5; }
+
+    /* Members */
+    .member-row {
+      display: flex;
+      gap: 8px;
+      margin-top: 12px;
+    }
+
+    .members {
       margin-top: 16px;
       display: flex;
-      gap: 10px;
+      flex-direction: column;
+      gap: 8px;
     }
 
-    button {
-      padding: 10px 14px;
+    .member-chip {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #e8f5e9;
+      border-left: 4px solid #2e7d32;
+      padding: 8px 12px;
+      border-radius: 6px;
+    }
+
+    .member-chip button {
+      background: none;
       border: none;
-      border-radius: 4px;
+      color: #c62828;
+      font-size: 16px;
       cursor: pointer;
-      color: white;
     }
 
-    .btn-save {
-      background: #1e8e6a;
-    }
-
-    .btn-delete {
-      background: #c0392b;
+    footer {
+      margin-top: 30px;
+      padding: 16px;
+      text-align: center;
+      color: #555;
     }
   </style>
 </head>
 
 <body>
 
-<header>
-  <h1>Uppgifter</h1>
-</header>
+<header>Uppgifter</header>
+
+<nav>
+  <a href="index.html">Start</a>
+  <a href="kurser.html">Kurser</a>
+  <a href="uppgifter.html">Uppgifter</a>
+</nav>
 
 <div class="container">
 
-  <!-- SECTION: GROUP -->
-  <div class="section">
+  <!-- GROUP -->
+  <div class="card">
     <h2>Våra uppgifter – Grupp A</h2>
 
-    <label for="groupNameInput">Gruppnamn</label>
-    <input id="groupNameInput" type="text" placeholder="Skriv gruppens namn">
+    <label>Gruppnamn</label>
+    <input id="groupName" type="text" placeholder="Skriv gruppnamn" />
 
-    <div class="button-row">
-      <button class="btn-save" id="saveBtn">Spara</button>
-      <button class="btn-delete" id="clearBtn">Rensa</button>
+    <div class="row">
+      <button class="btn-save" onclick="saveGroup()">Spara</button>
+      <button class="btn-clear" onclick="clearGroup()">Rensa</button>
     </div>
+  </div>
+
+  <!-- MEMBERS -->
+  <div class="card">
+    <h2>Gruppmedlemmar</h2>
+
+    <div class="member-row">
+      <input id="memberName" type="text" placeholder="Namn" />
+      <input id="memberEmail" type="email" placeholder="E-post (valfritt)" />
+      <input id="memberPhone" type="text" placeholder="Telefon (valfritt)" />
+      <button class="btn-add" onclick="addMember()">+</button>
+    </div>
+
+    <div id="membersList" class="members"></div>
+  </div>
+
+  <!-- ASSIGNMENT -->
+  <div class="card">
+    <h2>Uppgift</h2>
+
+    <label>Uppgiftens namn</label>
+    <input type="text" />
+
+    <label>Kurs</label>
+    <select>
+      <option>Social omsorg 1</option>
+      <option>Social omsorg 2</option>
+      <option>Psykiatri 1</option>
+      <option>Psykiatri 2</option>
+      <option>Omvårdnad 1</option>
+      <option>Anatomi och fysiologi 1</option>
+    </select>
+
+    <label>Datum</label>
+    <input type="date" />
+
+    <label>Deadline</label>
+    <input type="date" />
+
+    <label>Anteckningar</label>
+    <textarea rows="4"></textarea>
+
+    <label>Ladda upp PDF</label>
+    <input type="file" />
+  </div>
+
+  <!-- TEACHER -->
+  <div class="card">
+    <h2>Skicka till läraren</h2>
+    <p>zeinamesso@integrerar.se</p>
+    <a 
+  href="https://mail.google.com/mail/?view=cm&fs=1&to=zeinamesso@integrerar.se"
+  target="_blank"
+>
+  Open email (Gmail)
+</a>
+
   </div>
 
 </div>
 
-<!-- FIREBASE + LOGIC -->
-<script type="module">
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.1/firebase-app.js";
-  import {
-    getFirestore,
-    doc,
-    setDoc,
-    getDoc,
-    deleteDoc
-  } from "https://www.gstatic.com/firebasejs/9.22.1/firebase-firestore.js";
+<footer>Study Portal</footer>
 
-  const firebaseConfig = {
-    apiKey: "AIzaSyDJsZ4LZVrBucavpTdhXbKxyE_BFeZFFKs",
-    authDomain: "fir-console-df3e9.firebaseapp.com",
-    projectId: "fir-console-df3e9"
+<!-- SCRIPT -->
+<script type="module">
+  import { db } from "./firebase.js";
+  import { doc, setDoc } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+
+  const members = [];
+
+  window.addMember = function () {
+    const name = memberName.value.trim();
+    const email = memberEmail.value.trim();
+    const phone = memberPhone.value.trim();
+    if (!name) return;
+
+    const member = { name, email, phone };
+    members.push(member);
+
+    const div = document.createElement("div");
+    div.className = "member-chip";
+    div.innerHTML = `
+      <span>${name}${email ? " | " + email : ""}${phone ? " | " + phone : ""}</span>
+      <button onclick="this.parentElement.remove()">✕</button>
+    `;
+    membersList.appendChild(div);
+
+    memberName.value = "";
+    memberEmail.value = "";
+    memberPhone.value = "";
   };
 
-  const app = initializeApp(firebaseConfig);
-  const db = getFirestore(app);
+  window.saveGroup = async function () {
+    const name = groupName.value.trim();
+    if (!name) return alert("Group name required");
 
-  const GROUP_ID = "gruppA";
-
-  const input = document.getElementById("groupNameInput");
-  const saveBtn = document.getElementById("saveBtn");
-  const clearBtn = document.getElementById("clearBtn");
-
-  async function loadGroupName() {
-    const snap = await getDoc(doc(db, "groups", GROUP_ID));
-    if (snap.exists()) {
-      input.value = snap.data().name;
-    }
-  }
-
-  saveBtn.addEventListener("click", async () => {
-    if (!input.value.trim()) {
-      alert("Skriv gruppens namn");
-      return;
-    }
-
-    await setDoc(doc(db, "groups", GROUP_ID), {
-      name: input.value.trim(),
-      updatedAt: new Date()
+    await setDoc(doc(db, "groups", name), {
+      name,
+      members,
+      createdAt: new Date()
     });
 
-    alert("Sparat");
-  });
+    alert("Saved");
+  };
 
-  clearBtn.addEventListener("click", async () => {
-    if (!confirm("Är du säker?")) return;
-
-    await deleteDoc(doc(db, "groups", GROUP_ID));
-    input.value = "";
-  });
-
-  loadGroupName();
-import { db } from "./firebase.js";
-import { collection, addDoc } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore.js";
-
-document.querySelector(".btn-save").addEventListener("click", async () => {
-  const gruppnamn = document.querySelector('input[placeholder="Skriv gruppens namn"]').value;
-
-  if (!gruppnamn) {
-    alert("Group name required");
-    return;
-  }
-
-  await addDoc(collection(db, "groups"), {
-    name: gruppnamn,
-    createdAt: new Date()
-  });
-
-  alert("Saved to Firebase ✅");
-});</script>
+  window.clearGroup = function () {
+    groupName.value = "";
+    membersList.innerHTML = "";
+    members.length = 0;
+  };
+</script>
 
 </body>
 </html>
