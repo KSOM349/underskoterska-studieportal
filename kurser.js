@@ -1,34 +1,31 @@
-import { loadKurser, saveAktiv } from "./firebase.js";
+import { initializeApp } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-app.js";
+import {
+  getFirestore,
+  collection,
+  getDocs,
+  doc,
+  updateDoc
+} from "https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore.js";
 
-const container = document.getElementById("kurser-list");
+const firebaseConfig = {
+  apiKey: "AIzaSyDJsZ4LZVrBucavpTdhXbKxyE_BFeZFFKs",
+  authDomain: "fir-console-df3e9.firebaseapp.com",
+  projectId: "fir-console-df3e9",
+  storageBucket: "fir-console-df3e9.appspot.com",
+  messagingSenderId: "750795336412",
+  appId: "1:750795336412:web:abfd0c06941a9418abe219"
+};
 
-async function renderKurser() {
-  const kurser = await loadKurser();
-  container.innerHTML = "";
+const app = initializeApp(firebaseConfig);
+export const db = getFirestore(app);
 
-  kurser.forEach(kurs => {
-    const div = document.createElement("div");
-    div.className = "kurs";
-
-    div.innerHTML = `
-      <div>
-        <div><strong>${kurs.name}</strong></div>
-        <div class="status ${kurs.aktiv ? "aktiv" : "ejaktiv"}">
-          ${kurs.aktiv ? "Aktiv" : "Ej aktiv"}
-        </div>
-        ${kurs.teacherEmail ? `<div>E-post: <a href="mailto:${kurs.teacherEmail}">${kurs.teacherEmail}</a></div>` : ""}
-        ${kurs.deadline ? `<div>Deadline: ${kurs.deadline}</div>` : ""}
-      </div>
-      <button>Ändra</button>
-    `;
-
-    div.querySelector("button").onclick = async () => {
-      await saveAktiv(kurs.id, !kurs.aktiv);
-      renderKurser();
-    };
-
-    container.appendChild(div);
-  });
+// 🔹 تحميل الكورسات
+export async function loadKurser() {
+  const snap = await getDocs(collection(db, "kurser"));
+  return snap.docs.map(d => ({ id: d.id, ...d.data() }));
 }
 
-renderKurser();
+// 🔹 تغيير حالة الكورس
+export async function saveAktiv(id, aktiv) {
+  await updateDoc(doc(db, "kurser", id), { aktiv });
+}
