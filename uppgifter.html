@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="sv">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8">
   <title>Uppgifter – Grupp A</title>
-  <meta name="viewport" content="width=device-width, initial-sc>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <style>
     body {
@@ -24,7 +24,8 @@
       background: linear-gradient(90deg, #1b5e20, #1e88e5);
       padding: 12px 20px;
     }
-       nav a {
+
+    nav a {
       color: #fff;
       margin-right: 20px;
       text-decoration: none;
@@ -45,10 +46,7 @@
       margin-bottom: 30px;
     }
 
-    h2 {
-      margin-top: 0;
-    }
-       label {
+    label {
       display: block;
       margin-top: 16px;
       font-weight: bold;
@@ -63,16 +61,14 @@
       font-size: 15px;
     }
 
-    textarea {
-      resize: vertical;
-    }
+    textarea { resize: vertical; }
 
     .row {
       display: flex;
       gap: 12px;
       margin-top: 16px;
     }
-    
+
     .row button {
       padding: 10px 18px;
       border: none;
@@ -86,7 +82,6 @@
     .btn-clear { background: #c62828; }
     .btn-add { background: #1e88e5; }
 
-    /* Members */
     .member-row {
       display: flex;
       gap: 8px;
@@ -98,7 +93,8 @@
       display: flex;
       flex-direction: column;
       gap: 8px;
-    
+    }
+
     .member-chip {
       display: flex;
       justify-content: space-between;
@@ -116,7 +112,8 @@
       font-size: 16px;
       cursor: pointer;
     }
-      footer {
+
+    footer {
       margin-top: 30px;
       padding: 16px;
       text-align: center;
@@ -137,37 +134,35 @@
 
 <div class="container">
 
-  <!-- GROUP -->
   <div class="card">
     <h2>Våra uppgifter – Grupp A</h2>
-   <label>Gruppnamn</label>
-    <input id="groupName" type="text" placeholder="Skriv gruppn>
+    <label>Gruppnamn</label>
+    <input id="groupName" type="text" placeholder="Skriv gruppnamn">
 
     <div class="row">
-      <button class="btn-save" onclick="saveGroup()">Spara</but>
-      <button class="btn-clear" onclick="clearGroup()">Rensa</b>
+      <button class="btn-save" onclick="saveGroup()">Spara</button>
+      <button class="btn-clear" onclick="clearGroup()">Rensa</button>
     </div>
   </div>
 
-  <!-- MEMBERS -->
   <div class="card">
     <h2>Gruppmedlemmar</h2>
 
     <div class="member-row">
-      <input id="memberName" type="text" placeholder="Namn" />
-      <input id="memberEmail" type="email" placeholder="E-post >
-      <input id="memberPhone" type="text" placeholder="Telefon >
+      <input id="memberName" type="text" placeholder="Namn">
+      <input id="memberEmail" type="email" placeholder="E-post (valfritt)">
+      <input id="memberPhone" type="text" placeholder="Telefon (valfritt)">
       <button class="btn-add" onclick="addMember()">+</button>
     </div>
 
     <div id="membersList" class="members"></div>
   </div>
 
-  <!-- ASSIGNMENT -->
-  <div class="card">  <h2>Uppgift</h2>
+  <div class="card">
+    <h2>Uppgift</h2>
 
     <label>Uppgiftens namn</label>
-    <input type="text" />
+    <input type="text">
 
     <label>Kurs</label>
     <select>
@@ -180,77 +175,67 @@
     </select>
 
     <label>Datum</label>
-    <input type="date" />
+    <input type="date">
 
     <label>Deadline</label>
-    <input type="date" />
+    <input type="date">
 
     <label>Anteckningar</label>
     <textarea rows="4"></textarea>
 
-    <label>Ladda upp PDF</label>  <input type="file" />
+    <label>Ladda upp PDF</label>
+    <input type="file">
   </div>
 
-  <!-- TEACHER -->
   <div class="card">
     <h2>Skicka till läraren</h2>
     <p>zeinamesso@integrerar.se</p>
-    <a
-  href="https://mail.google.com/mail/?view=cm&fs=1&to=zeinamess>
-  target="_blank"
->
-  Open email (Gmail)
-</a>
-
+    <a href="mailto:zeinamesso@integrerar.se">Öppna e-post</a>
   </div>
 
 </div>
 
 <footer>Study Portal</footer>
 
-<!-- SCRIPT -->
-<script type="module">
-  import { db } from "./firebase.js";
-  import { doc, setDoc } from "https://www.gstatic.com/firebase>
-      window.addMember = function () {
+<script>
+  const members = [];
+
+  function addMember() {
     const name = memberName.value.trim();
     const email = memberEmail.value.trim();
     const phone = memberPhone.value.trim();
     if (!name) return;
 
-    const member = { name, email, phone };
-    members.push(member);
+    members.push({ name, email, phone });
 
     const div = document.createElement("div");
     div.className = "member-chip";
-    div.innerHTML = `
-      <span>${name}${email ? " | " + email : ""}${phone ? " | ">
-      <button onclick="this.parentElement.remove()">✕</button>
-    `;
+    div.innerHTML =
+      "<span>" +
+      name +
+      (email ? " | " + email : "") +
+      (phone ? " | " + phone : "") +
+      "</span><button onclick='this.parentElement.remove()'>✕</button>";
+
     membersList.appendChild(div);
 
     memberName.value = "";
     memberEmail.value = "";
     memberPhone.value = "";
-  };
+  }
 
-  window.saveGroup = async function () {
-    const name = groupName.value.trim();
-    if (!name) return alert("Group name required");
-       await setDoc(doc(db, "groups", name), {
-      name,
-      members,
-      createdAt: new Date()
-    });
+  function saveGroup() {
+    localStorage.setItem("groupName", groupName.value);
+    localStorage.setItem("members", JSON.stringify(members));
+    alert("Saved locally");
+  }
 
-    alert("Saved");
-  };
-
-  window.clearGroup = function () {
+  function clearGroup() {
     groupName.value = "";
     membersList.innerHTML = "";
     members.length = 0;
-  };
+    localStorage.clear();
+  }
 </script>
 
 </body>
