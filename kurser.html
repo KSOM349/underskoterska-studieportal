@@ -1,90 +1,43 @@
 <!DOCTYPE html>
 <html lang="sv">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8">
   <title>Kurser</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #f2f6f4;
-    }
-
-    header {
-      background: #1b8f6a;
-      color: #fff;
-      padding: 20px;
-      font-size: 24px;
-      font-weight: bold;
-    }
-
-    nav {
-      background: linear-gradient(90deg, #1b5e20, #1e88e5);
-      padding: 10px 20px;
-    }
-
-    nav a {
-      color: #fff;
-      margin-right: 18px;
-      text-decoration: none;
-      font-weight: 500;
-    }
-
-    .container {
-      max-width: 900px;
-      margin: 30px auto;
-      padding: 0 16px;
-    }
-
+    body { font-family: Arial; margin: 0; background: #f4f6f5; }
+    header { background: #1b8f6a; color: #fff; padding: 20px; font-size: 24px; }
+    nav { background: #2e7d32; padding: 10px; }
+    nav a { color: white; margin-right: 15px; text-decoration: none; }
+    .container { max-width: 900px; margin: 30px auto; padding: 20px; }
     .kurs {
-      background: #fff;
+      background: white;
       padding: 16px;
+      margin-bottom: 12px;
       border-radius: 8px;
-      margin-bottom: 14px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.08);
       display: flex;
       justify-content: space-between;
       align-items: center;
     }
-
-    .status {
-      font-weight: bold;
-    }
-
-    .aktiv { color: #2e7d32; }
-    .ejaktiv { color: #777; }
-
-    button {
-      padding: 8px 14px;
-      border: none;
-      border-radius: 6px;
-      cursor: pointer;
-      background: #1e88e5;
-      color: #fff;
-      font-size: 14px;
-    }
+    .aktiv { color: green; font-weight: bold; }
+    .ejaktiv { color: gray; }
   </style>
 </head>
 
 <body>
+  <header>Kurser</header>
 
-<header>Kurser</header>
+  <nav>
+    <a href="index.html">Start</a>
+    <a href="kurser.html">Kurser</a>
+    <a href="uppgifter.html">Uppgifter</a>
+  </nav>
 
-<nav>
-  <a href="index.html">Start</a>
-  <a href="kurser.html">Kurser</a>
-  <a href="uppgifter.html">Uppgifter</a>
-</nav>
+  <div class="container">
+    <div id="kurser-list"></div>
+  </div>
 
-<div class="container">
-  <div id="kurser-list"></div>
-</div>
-
-<!-- JS فقط هنا -->
-<script type="module" src="./kurser.js"></script>
-
+  <!-- 🔴 هذا السطر هو الأهم -->
+  <script type="module" src="./kurser.js"></script>
 </body>
 </html>
-
