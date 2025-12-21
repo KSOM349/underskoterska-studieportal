@@ -1,14 +1,33 @@
-import { initializeApp } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-app.js";
-import { getFirestore } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore.js";
+import { loadKurser, toggleAktiv } from "./firebase.js";
 
-const firebaseConfig = {
-  apiKey: "PUT_YOUR_API_KEY_HERE",
-  authDomain: "fir-console-df3e9.firebaseapp.com",
-  projectId: "fir-console-df3e9",
-  storageBucket: "fir-console-df3e9.appspot.com",
-  messagingSenderId: "PUT_SENDER_ID_HERE",
-  appId: "PUT_APP_ID_HERE"
-};
+const container = document.getElementById("kurser");
 
-const app = initializeApp(firebaseConfig);
-export const db = getFirestore(app);
+async function renderKurser() {
+  container.innerHTML = "";
+
+  const kurser = await loadKurser();
+
+  kurser.forEach(kurs => {
+    const div = document.createElement("div");
+    div.className = "kurs";
+
+    div.innerHTML = `
+      <div>
+        <strong>${kurs.name}</strong><br>
+        <span class="${kurs.aktiv ? "aktiv" : "ejaktiv"}">
+          ${kurs.aktiv ? "Aktiv" : "Ej aktiv"}
+        </span>
+      </div>
+      <button>Toggle</button>
+    `;
+
+    div.querySelector("button").onclick = async () => {
+      await toggleAktiv(kurs.id, !kurs.aktiv);
+      renderKurser();
+    };
+
+    container.appendChild(div);
+  });
+}
+
+renderKurser();

@@ -3,16 +3,60 @@
 <head>
   <meta charset="UTF-8">
   <title>Kurser</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
   <style>
-    body { font-family: Arial; margin: 0; background: #f4f6f5; }
-    header { background: #1b8f6a; color: #fff; padding: 20px; font-size: 24px; }
-    nav { background: #2e7d32; padding: 12px; }
-    nav a { color: white; margin-right: 15px; text-decoration: none; font-weight: bold; }
-    .container { max-width: 900px; margin: 30px auto; padding: 20px; }
-    .kurs { background: white; padding: 15px; border-radius: 8px; margin-bottom: 10px; }
+    body {
+      font-family: Arial;
+      margin: 0;
+      background: #f4f6f5;
+    }
+
+    header {
+      background: #1b8f6a;
+      color: white;
+      padding: 20px;
+      font-size: 22px;
+    }
+
+    nav {
+      background: #2e7d32;
+      padding: 10px;
+    }
+
+    nav a {
+      color: white;
+      margin-right: 15px;
+      text-decoration: none;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 30px auto;
+      padding: 16px;
+    }
+
+    .kurs {
+      background: white;
+      padding: 16px;
+      margin-bottom: 12px;
+      border-radius: 8px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .aktiv {
+      color: green;
+      font-weight: bold;
+    }
+
+    .ejaktiv {
+      color: gray;
+    }
   </style>
 </head>
+
 <body>
 
 <header>Kurser</header>
@@ -23,11 +67,11 @@
   <a href="uppgifter.html">Uppgifter</a>
 </nav>
 
-<div class="container">
-  <div class="kurs">Social omsorg 1</div>
-  <div class="kurs">Social omsorg 2</div>
-  <div class="kurs">Psykiatri 1</div>
+<div class="container" id="kurser">
+  Loading...
 </div>
+
+<script type="module" src="./kurser.js"></script>
 
 </body>
 </html>
