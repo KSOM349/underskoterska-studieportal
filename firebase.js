@@ -4,7 +4,8 @@ import {
   collection,
   getDocs,
   doc,
-  updateDoc
+  updateDoc,
+  setDoc
 } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore.js";
 
 const firebaseConfig = {
@@ -28,5 +29,10 @@ export async function loadKurser() {
 }
 
 export async function saveAktiv(id, aktiv) {
-  await updateDoc(doc(db, "kurser", id), { aktiv });
+  const ref = doc(db, "kurser", id);
+  await updateDoc(ref, { aktiv });
+}
+
+export async function saveGroup(name, data) {
+  await setDoc(doc(db, "groups", name), data);
 }
