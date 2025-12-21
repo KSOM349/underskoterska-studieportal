@@ -4,12 +4,9 @@
   <meta charset="UTF-8">
   <title>Kurser</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
   <style>
     body { font-family: Arial; margin: 0; background: #f4f6f5; }
-    header { background: #1b8f6a; color: #fff; padding: 20px; font-size: 24px; }
-    nav { background: #2e7d32; padding: 10px; }
-    nav a { color: white; margin-right: 15px; text-decoration: none; }
+    header { background: #1b8f6a; color: #fff; padding: 20px; }
     .container { max-width: 900px; margin: 30px auto; padding: 20px; }
     .kurs {
       background: white;
@@ -18,28 +15,22 @@
       border-radius: 8px;
       display: flex;
       justify-content: space-between;
-      align-items: center;
     }
     .aktiv { color: green; font-weight: bold; }
     .ejaktiv { color: gray; }
   </style>
 </head>
-
 <body>
 
-<header>Kurser</header>
-
-<nav>
-  <a href="index.html">Start</a>
-  <a href="kurser.html">Kurser</a>
-  <a href="uppgifter.html">Uppgifter</a>
-</nav>
+<header>
+  <h1>Kurser</h1>
+</header>
 
 <div class="container">
-  <div id="kurser-container"></div>
+  <!-- هذا هو العنصر المهم -->
+  <div id="kurser"></div>
 </div>
 
-<script type="module" src="kurser.js"></script>
-
+<script type="module" src="./kurser.js"></script>
 </body>
 </html>
