@@ -8,13 +8,18 @@ async function renderKurser() {
 
   kurser.forEach(kurs => {
     const div = document.createElement("div");
+    div.className = "kurs";
 
     div.innerHTML = `
       <div>
-        <strong>${kurs.name}</strong><br>
-        Status: ${kurs.aktiv ? "Aktiv" : "Ej aktiv"}
-        <button>Ändra</button>
+        <div><strong>${kurs.name}</strong></div>
+        <div class="status ${kurs.aktiv ? "aktiv" : "ejaktiv"}">
+          ${kurs.aktiv ? "Aktiv" : "Ej aktiv"}
+        </div>
+        ${kurs.teacherEmail ? `<div>E-post: <a href="mailto:${kurs.teacherEmail}">${kurs.teacherEmail}</a></div>` : ""}
+        ${kurs.deadline ? `<div>Deadline: ${kurs.deadline}</div>` : ""}
       </div>
+      <button>Ändra</button>
     `;
 
     div.querySelector("button").onclick = async () => {
