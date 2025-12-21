@@ -1,106 +1,105 @@
 <!DOCTYPE html>
 <html lang="sv">
 <head>
-<meta charset="UTF-8">
-<title>Undersköterska – Studieportal</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8" />
+  <title>Kurser</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<style>
-body{
-  margin:0;
-  font-family:system-ui, Arial;
-  background:#f4fdf9;
-  color:#1f2937;
-}
-header{
-  background:#065f46;
-  color:white;
-  padding:14px;
-}
-nav a{
-  color:white;
-  margin-right:14px;
-  text-decoration:none;
-  font-weight:600;
-}
-main{
-  max-width:900px;
-  margin:20px auto;
-  padding:0 14px;
-}
-.card{
-  background:white;
-  padding:18px;
-  border-radius:10px;
-  margin-bottom:18px;
-  box-shadow:0 4px 10px rgba(0,0,0,.08);
-}
-h1,h2{color:#065f46;}
-footer{
-  text-align:center;
-  font-size:14px;
-  color:#555;
-  margin:30px 0;
-}
-</style>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f2f6f4;
+    }
+
+    header {
+      background: #1b8f6a;
+      color: white;
+      padding: 20px;
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    nav {
+      background: linear-gradient(90deg, #1b5e20, #1e88e5);
+      padding: 12px 20px;
+    }
+
+    nav a {
+      color: white;
+      margin-right: 20px;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 30px auto;
+      padding: 0 16px;
+    }
+
+    .kurs {
+      background: white;
+      padding: 16px;
+      margin-bottom: 16px;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .status {
+      font-weight: bold;
+    }
+
+    .aktiv {
+      color: green;
+    }
+
+    .ejaktiv {
+      color: gray;
+    }
+
+    button {
+      padding: 8px 14px;
+      border: none;
+      border-radius: 6px;
+      background: #1e88e5;
+      color: white;
+      cursor: pointer;
+    }
+
+    button:hover {
+      opacity: 0.9;
+    }
+
+    footer {
+      text-align: center;
+      color: #555;
+      padding: 20px;
+      margin-top: 40px;
+    }
+  </style>
 </head>
 
 <body>
 
-<header>
-  <strong>Undersköterska – Studieportal</strong><br>
-  <nav>
+<header>Kurser</header>
+
+<nav>
   <a href="index.html">Start</a>
   <a href="kurser.html">Kurser</a>
   <a href="uppgifter.html">Uppgifter</a>
-  <a href="submit.html">Lämna in</a>
-  <a href="https://gleerupsportal.se/min-sida" target="_blank">Gleerups</a>
 </nav>
 
-</header>
-
-<main>
-
-<div class="card">
-<h1>Om undersköterska</h1>
-<p>
-Som undersköterska arbetar du nära människor och hjälper dem i vardagen
-med vård, omsorg och stöd. Yrket kräver empati, ansvar och samarbete.
-</p>
+<div class="container">
+  <div id="kurser-list"></div>
 </div>
 
-<div class="card">
-<h2>Utbildningens upplägg</h2>
-<ul>
-<li>1500 poäng</li>
-<li>Teori + praktik (APL)</li>
-<li>Grupparbeten och individuella uppgifter</li>
-<li>Distans och klassrum</li>
-</ul>
-</div>
+<footer>Study Portal</footer>
 
-<div class="card">
-<h2>Viktiga länkar</h2>
-<ul>
-<li><a href="https://gleerupsportal.se/min-sida" target="_blank">Gleerups kursbok</a></li>
-<li><a href="https://www.1177.se" target="_blank">1177 Vårdguiden</a></li>
-<li><a href="https://www.socialstyrelsen.se" target="_blank">Socialstyrelsen</a></li>
-</ul>
-</div>
-
-<div class="card">
-<h2>Övrig info om kursen</h2>
-<p>
-Planera din studietid, samarbeta med din grupp och våga ställa frågor.
-Den här portalen är ett stöd för er – inte ett krav.
-</p>
-</div>
-
-</main>
-
-<footer>
-Studieportal skapad av studenter · Ingen inloggning krävs
-</footer>
+<script type="module" src="./kurser.js"></script>
 
 </body>
 </html>
