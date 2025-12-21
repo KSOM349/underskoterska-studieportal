@@ -1,8 +1,19 @@
-import { loadKurser, toggleAktiv } from "./firebase.js";
+import { db } from "./firebase.js";
+import {
+  collection,
+  getDocs
+} from "https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore.js";
 
 const container = document.getElementById("kurser");
 
+async function loadKurser() {
+  const snapshot = await getDocs(collection(db, "kurser"));
+  return snapshot.docs.map(doc => doc.data());
+}
+
 async function renderKurser() {
+  if (!container) return;
+
   container.innerHTML = "";
 
   const kurser = await loadKurser();
@@ -12,19 +23,8 @@ async function renderKurser() {
     div.className = "kurs";
 
     div.innerHTML = `
-      <div>
-        <strong>${kurs.name}</strong><br>
-        <span class="${kurs.aktiv ? "aktiv" : "ejaktiv"}">
-          ${kurs.aktiv ? "Aktiv" : "Ej aktiv"}
-        </span>
-      </div>
-      <button>Toggle</button>
+      <strong>${kurs.name}</strong>
     `;
-
-    div.querySelector("button").onclick = async () => {
-      await toggleAktiv(kurs.id, !kurs.aktiv);
-      renderKurser();
-    };
 
     container.appendChild(div);
   });
