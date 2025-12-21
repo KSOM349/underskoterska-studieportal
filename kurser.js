@@ -1,29 +1,32 @@
-import { db } from "./firebase.js";
-import {
-  collection,
-  getDocs
-} from "https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore.js";
+import { loadKurser, saveAktiv } from "./firebase.js";
 
 const container = document.getElementById("kurser-container");
 
-async function loadKurser() {
-  const snapshot = await getDocs(collection(db, "kurser"));
+async function renderKurser() {
+  const kurser = await loadKurser();
+  container.innerHTML = "";
 
-  snapshot.forEach(doc => {
-    const data = doc.data();
-
+  kurser.forEach(kurs => {
     const div = document.createElement("div");
     div.className = "kurs";
 
     div.innerHTML = `
-      <strong>${data.name}</strong>
-      <div class="${data.aktiv ? "aktiv" : "ejaktiv"}">
-        ${data.aktiv ? "Aktiv" : "Ej aktiv"}
+      <div>
+        <div><strong>${kurs.name}</strong></div>
+        <div class="${kurs.aktiv ? "aktiv" : "ejaktiv"}">
+          ${kurs.aktiv ? "Aktiv" : "Ej aktiv"}
+        </div>
       </div>
+      <button>Ändra</button>
     `;
+
+    div.querySelector("button").onclick = async () => {
+      await saveAktiv(kurs.id, !kurs.aktiv);
+      renderKurser();
+    };
 
     container.appendChild(div);
   });
 }
 
-loadKurser();
+renderKurser();
