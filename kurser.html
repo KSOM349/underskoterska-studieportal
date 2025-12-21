@@ -1,88 +1,43 @@
 <!DOCTYPE html>
 <html lang="sv">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8">
   <title>Kurser</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #f2f6f4;
-    }
-
-    header {
-      background: #1b8f6a;
-      color: white;
-      padding: 20px;
-      font-size: 24px;
-      font-weight: bold;
-    }
-
-    nav {
-      background: linear-gradient(90deg, #1b5e20, #1e88e5);
-      padding: 12px 20px;
-    }
-
-    nav a {
-      color: white;
-      margin-right: 20px;
-      text-decoration: none;
-      font-weight: 500;
-    }
-
-    .container {
-      max-width: 900px;
-      margin: 30px auto;
-      padding: 0 16px;
-    }
-
+    body { font-family: Arial; margin: 0; background: #f4f6f5; }
+    header { background: #1b8f6a; color: #fff; padding: 20px; font-size: 24px; }
+    nav { background: #2e7d32; padding: 10px; }
+    nav a { color: white; margin-right: 15px; text-decoration: none; }
+    .container { max-width: 900px; margin: 30px auto; padding: 20px; }
     .kurs {
       background: white;
       padding: 16px;
+      margin-bottom: 12px;
       border-radius: 8px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-      margin-bottom: 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
     }
-
-    .kurs h3 {
-      margin: 0 0 8px 0;
-    }
-
-    button {
-      margin-top: 10px;
-      padding: 8px 14px;
-      border: none;
-      border-radius: 6px;
-      background: #1e88e5;
-      color: white;
-      cursor: pointer;
-    }
-
-    button:hover {
-      opacity: 0.9;
-    }
+    .aktiv { color: green; font-weight: bold; }
+    .ejaktiv { color: gray; }
   </style>
 </head>
 
 <body>
+  <header>Kurser</header>
 
-<header>Kurser</header>
+  <nav>
+    <a href="index.html">Start</a>
+    <a href="kurser.html">Kurser</a>
+    <a href="uppgifter.html">Uppgifter</a>
+  </nav>
 
-<nav>
-  <a href="index.html">Start</a>
-  <a href="kurser.html">Kurser</a>
-  <a href="uppgifter.html">Uppgifter</a>
-</nav>
+  <div class="container">
+    <div id="kurser-list"></div>
+  </div>
 
-<div class="container">
-  <!-- Firebase will render courses here -->
-  <div id="kurser-list"></div>
-</div>
-
-<!-- IMPORTANT: JS only here -->
-<script type="module" src="./kurser.js"></script>
-
+  <!-- 🔴 هذا السطر هو الأهم -->
+  <script type="module" src="./kurser.js"></script>
 </body>
 </html>
