@@ -1,17 +1,90 @@
-  GNU nano 7.2               kurser.html
-div.innerHTML = `
-  <div>
-    <div><strong>${kurs.name}</strong></div>
-    <div class="status ${kurs.aktiv ? "aktiv" : "ejaktiv"}">
-      ${kurs.aktiv ? "Aktiv" : "Ej aktiv"}
-    </div>
-  </div>
-  <button>Ändra</button>
-`;
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8" />
+  <title>Kurser</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-div.querySelector("button").onclick = async () => {
-  await saveAktiv(kurs.id, !kurs.aktiv);
-  renderKurser();
-};
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f2f6f4;
+    }
 
-container.appendChild(div);
+    header {
+      background: #1b8f6a;
+      color: #fff;
+      padding: 20px;
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    nav {
+      background: linear-gradient(90deg, #1b5e20, #1e88e5);
+      padding: 10px 20px;
+    }
+
+    nav a {
+      color: #fff;
+      margin-right: 18px;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 30px auto;
+      padding: 0 16px;
+    }
+
+    .kurs {
+      background: #fff;
+      padding: 16px;
+      border-radius: 8px;
+      margin-bottom: 14px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .status {
+      font-weight: bold;
+    }
+
+    .aktiv { color: #2e7d32; }
+    .ejaktiv { color: #777; }
+
+    button {
+      padding: 8px 14px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      background: #1e88e5;
+      color: #fff;
+      font-size: 14px;
+    }
+  </style>
+</head>
+
+<body>
+
+<header>Kurser</header>
+
+<nav>
+  <a href="index.html">Start</a>
+  <a href="kurser.html">Kurser</a>
+  <a href="uppgifter.html">Uppgifter</a>
+</nav>
+
+<div class="container">
+  <div id="kurser-list"></div>
+</div>
+
+<!-- JS فقط هنا -->
+<script type="module" src="./kurser.js"></script>
+
+</body>
+</html>
+
