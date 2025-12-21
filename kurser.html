@@ -1,57 +1,17 @@
-<!DOCTYPE html>
-<html lang="sv">
-<head>
-  <meta charset="UTF-8">
-  <title>Kurser – Undersköterska Studieportal</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+div.innerHTML = `
+  <div>
+    <div><strong>${kurs.name}</strong></div>
+    <div class="status ${kurs.aktiv ? "aktiv" : "ejaktiv"}">
+      ${kurs.aktiv ? "Aktiv" : "Ej aktiv"}
+    </div>
+  </div>
+  <button>Ändra</button>
+`;
 
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background: #f4f7f6;
-      margin: 0;
-      padding: 20px;
-    }
+div.querySelector("button").onclick = async () => {
+  await saveAktiv(kurs.id, !kurs.aktiv);
+  renderKurser();
+};
 
-    h1 {
-      text-align: center;
-      color: #2f6f4e;
-    }
-
-    .kurs {
-      background: #fff;
-      border-radius: 8px;
-      padding: 15px;
-      margin-bottom: 12px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.08);
-    }
-
-    button {
-      padding: 6px 10px;
-      border: none;
-      border-radius: 4px;
-      cursor: pointer;
-      background: #2f6f4e;
-      color: white;
-    }
-
-    button:hover {
-      opacity: 0.9;
-    }
-  </style>
-</head>
-
-<body>
-
-  <h1>Kurser</h1>
-
-  <!-- هنا Firebase راح يعرض الكورسات -->
-  <div id="kurser-list"></div>
-
-  <!-- ربط Firebase -->
-  <script type="module" src="./firebase.js"></script>
-  <script type="module" src="./kurser.js"></script>
-
-</body>
-</html>
+container.appendChild(div);
 

@@ -12,18 +12,32 @@ async function renderKurser() {
 
     div.innerHTML = `
       <h3>${kurs.name}</h3>
+
       <p>
         Status:
         <strong style="color:${kurs.aktiv ? "green" : "gray"}">
           ${kurs.aktiv ? "Aktiv" : "Ej aktiv"}
         </strong>
       </p>
-      <button>Ändra status</button>
-      ${kurs.teacherEmail ? `<p>E-post: <a href="mailto:${kurs.teacherEmail}">${kurs.teacherEmail}</a></p>` : ""}
-      ${kurs.deadline ? `<p>Deadline: ${kurs.deadline}</p>` : ""}
+
+      <button class="toggle-btn">Ändra status</button>
+
+      ${
+        kurs.teacherEmail
+          ? `<p>E-post: <a href="mailto:${kurs.teacherEmail}">
+              ${kurs.teacherEmail}
+            </a></p>`
+          : ""
+      }
+
+      ${
+        kurs.deadline
+          ? `<p>Deadline: ${kurs.deadline}</p>`
+          : ""
+      }
     `;
 
-    const btn = div.querySelector("button");
+    const btn = div.querySelector(".toggle-btn");
     btn.onclick = async () => {
       await saveAktiv(kurs.id, !kurs.aktiv);
       renderKurser();
@@ -34,4 +48,3 @@ async function renderKurser() {
 }
 
 renderKurser();
-
