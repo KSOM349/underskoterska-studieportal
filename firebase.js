@@ -1,34 +1,14 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-app.js";
-import {
-  getFirestore,
-  collection,
-  getDocs,
-  doc,
-  updateDoc
-} from "https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore.js";
+import { getFirestore } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore.js";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyDJsZ4LZVrBucavpTdhXbKxyE_BFeZFFKs",
+  apiKey: "PUT_API_KEY_HERE",
   authDomain: "fir-console-df3e9.firebaseapp.com",
   projectId: "fir-console-df3e9",
   storageBucket: "fir-console-df3e9.appspot.com",
-  messagingSenderId: "750795336412",
-  appId: "1:750795336412:web:abfd0c06941a9418abe219"
+  messagingSenderId: "PUT_SENDER_ID_HERE",
+  appId: "PUT_APP_ID_HERE"
 };
 
 const app = initializeApp(firebaseConfig);
 export const db = getFirestore(app);
-
-export async function loadKurser() {
-  const snap = await getDocs(collection(db, "kurser"));
-  return snap.docs.map(d => ({
-    id: d.id,
-    ...d.data()
-  }));
-}
-
-export async function toggleAktiv(id, value) {
-  await updateDoc(doc(db, "kurser", id), {
-    aktiv: value
-  });
-}
