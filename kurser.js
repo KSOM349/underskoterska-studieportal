@@ -3,18 +3,22 @@ import { loadKurser, saveAktiv } from "./firebase.js";
 const container = document.getElementById("kurser-list");
 
 async function renderKurser() {
-  const kurser = await loadKurser();
   container.innerHTML = "";
+
+  const kurser = await loadKurser();
 
   kurser.forEach(kurs => {
     const div = document.createElement("div");
+    div.className = "kurs";
 
     div.innerHTML = `
       <div>
-        <strong>${kurs.name}</strong><br>
-        Status: ${kurs.aktiv ? "Aktiv" : "Ej aktiv"}
-        <button>Ändra</button>
+        <div><strong>${kurs.name}</strong></div>
+        <div class="${kurs.aktiv ? "aktiv" : "ejaktiv"}">
+          ${kurs.aktiv ? "Aktiv" : "Ej aktiv"}
+        </div>
       </div>
+      <button>Ändra</button>
     `;
 
     div.querySelector("button").onclick = async () => {
@@ -27,3 +31,4 @@ async function renderKurser() {
 }
 
 renderKurser();
+

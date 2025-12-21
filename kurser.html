@@ -1,17 +1,44 @@
-  GNU nano 7.2               kurser.html
-div.innerHTML = `
-  <div>
-    <div><strong>${kurs.name}</strong></div>
-    <div class="status ${kurs.aktiv ? "aktiv" : "ejaktiv"}">
-      ${kurs.aktiv ? "Aktiv" : "Ej aktiv"}
-    </div>
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8">
+  <title>Kurser</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body { font-family: Arial; margin: 0; background: #f4f6f5; }
+    header { background: #1b8f6a; color: #fff; padding: 20px; font-size: 24px; }
+    nav { background: #2e7d32; padding: 10px; }
+    nav a { color: white; margin-right: 15px; text-decoration: none; }
+    .container { max-width: 900px; margin: 30px auto; padding: 20px; }
+    .kurs {
+      background: white;
+      padding: 16px;
+      margin-bottom: 12px;
+      border-radius: 8px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .aktiv { color: green; font-weight: bold; }
+    .ejaktiv { color: gray; }
+  </style>
+</head>
+
+<body>
+  <header>Kurser</header>
+
+  <nav>
+    <a href="index.html">Start</a>
+    <a href="kurser.html">Kurser</a>
+    <a href="uppgifter.html">Uppgifter</a>
+  </nav>
+
+  <div class="container">
+    <div id="kurser-list"></div>
   </div>
-  <button>Ändra</button>
-`;
 
-div.querySelector("button").onclick = async () => {
-  await saveAktiv(kurs.id, !kurs.aktiv);
-  renderKurser();
-};
+  <!-- 🔴 هذا السطر هو الأهم -->
+  <script type="module" src="./kurser.js"></script>
+</body>
+</html>
 
-container.appendChild(div);
