@@ -3,66 +3,89 @@
 <head>
   <meta charset="UTF-8">
   <title>Kurser – Study Portal</title>
-  <link rel="stylesheet" href=".container {
-  padding: 20px;
+  <link rel="stylesheet" href="body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f5f5f5;
 }
 
-.kurs {
-  padding: 12px;
-  margin-bottom: 10px;
-  border-radius: 6px;
+.header {
+  background: #0b5d3b;
+  color: white;
+  padding: 20px;
+  text-align: center;
+}
+
+.header h1 {
+  margin: 0;
+}
+
+nav {
+  margin-top: 10px;
+}
+
+nav a {
+  color: white;
+  margin: 0 10px;
+  text-decoration: none;
   font-weight: bold;
 }
 
-.kurs.aktiv {
-  background-color: #d4f4dd;
-  color: #1e6b34;
+nav a.active {
+  text-decoration: underline;
 }
 
-.kurs.ejaktiv {
-  background-color: #f4d4d4;
-  color: #7a1e1e;
+.container {
+  padding: 30px;
+  max-width: 800px;
+  margin: auto;
+  background: white;
+  margin-top: 20px;
+}
+
+.kurs-lista {
+  list-style: none;
+  padding: 0;
+}
+
+.kurs-lista li {
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+.aktiv {
+  color: green;
+  font-weight: bold;
 }
 style.css">
 </head>
 <body>
 
-<header>
+<header class="header">
   <h1>Study Portal</h1>
+  <nav>
+    <a href="index.html">Start</a>
+    <a href="kurser.html" class="active">Kurser</a>
+    <a href="uppgifter.html">Uppgifter</a>
+  </nav>
 </header>
-
-<nav>
-  <a href="index.html">Start</a>
-  <a href="kurser.html" class="active">Kurser</a>
-  <a href="uppgifter.html">Uppgifter</a>
-</nav>
 
 <main class="container">
   <h2>Kurser</h2>
 
-  <div class="kurs aktiv">Psykologi 1 – <span>Aktiv</span></div>
-  <div class="kurs aktiv">Vård och omsorg – <span>Aktiv</span></div>
-  <div class="kurs aktiv">Etik och människans livsvillkor – <span>Aktiv</span></div>
-  <div class="kurs aktiv">Medicin 1 – <span>Aktiv</span></div>
-
-  <div class="kurs ejaktiv">Psykiatri 1 – <span>Ej aktiv</span></div>
-  <div class="kurs ejaktiv">Anatomi och fysiologi 1 – <span>Ej aktiv</span></div>
-  <div class="kurs ejaktiv">Gerontologi och geriatrik – <span>Ej aktiv</span></div>
-  <div class="kurs ejaktiv">Social omsorg 1 – <span>Ej aktiv</span></div>
-
-  <div class="kurs ejaktiv">Hälso- och sjukvård 1 – <span>Ej aktiv</span></div>
-  <div class="kurs ejaktiv">Omvårdnad 1 – <span>Ej aktiv</span></div>
-  <div class="kurs ejaktiv">Funktionsförmåga och funktionsnedsättning 1 – <span>Ej aktiv</span></div>
-
-  <div class="kurs ejaktiv">Samhällskunskap 1a1 – <span>Ej aktiv</span></div>
-  <div class="kurs ejaktiv">Svenska 1 – <span>Ej aktiv</span></div>
-  <div class="kurs ejaktiv">Svenska som andraspråk 1 – <span>Ej aktiv</span></div>
-
-  <div class="kurs ejaktiv">Vård och omsorg – specialisering – <span>Ej aktiv</span></div>
-  <div class="kurs ejaktiv">Palliativ vård – <span>Ej aktiv</span></div>
-  <div class="kurs ejaktiv">Akutsjukvård – <span>Ej aktiv</span></div>
+  <ul class="kurs-lista">
+    <li>Psykologi 1 – <span class="aktiv">Aktiv</span></li>
+    <li>Vård och omsorg – <span class="aktiv">Aktiv</span></li>
+    <li>Hälsa och livsvillkor – <span class="aktiv">Aktiv</span></li>
+    <li>Medicin 1 – <span class="aktiv">Aktiv</span></li>
+    <li>Anatomi och fysiologi 1 – <span class="aktiv">Aktiv</span></li>
+    <li>Social omsorg – <span class="aktiv">Aktiv</span></li>
+    <li>Gerontologi och geriatrik – <span class="aktiv">Aktiv</span></li>
+    <li>Funktionsförmåga och funktionsnedsättning 1 – <span class="aktiv">Aktiv</span></li>
+    <li>Svenska 1 – <span class="aktiv">Aktiv</span></li>
+    <li>Samhällskunskap 1a1 – <span class="aktiv">Aktiv</span></li>
+  </ul>
 </main>
-
 
 </body>
 </html>
