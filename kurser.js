@@ -23,7 +23,10 @@ async function renderKurser() {
     div.className = "kurs";
 
     div.innerHTML = `
-      <strong>${kurs.name}</strong>
+      <strong>${kurs.name}</strong><br>
+      <span class="${kurs.aktiv ? "aktiv" : "ejaktiv"}">
+        ${kurs.aktiv ? "Aktiv" : "Ej aktiv"}
+      </span>
     `;
 
     container.appendChild(div);
