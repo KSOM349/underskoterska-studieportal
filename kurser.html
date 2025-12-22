@@ -1,15 +1,62 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8">
+  <title>Kurser – Study Portal</title>
+  <link rel="stylesheet" href=".container {
+  padding: 20px;
+}
+
+.kurs {
+  padding: 12px;
+  margin-bottom: 10px;
+  border-radius: 6px;
+  font-weight: bold;
+}
+
+.kurs.aktiv {
+  background-color: #d4f4dd;
+  color: #1e6b34;
+}
+
+.kurs.ejaktiv {
+  background-color: #f4d4d4;
+  color: #7a1e1e;
+}
+style.css">
+</head>
 <body>
-  <header>
-    <h1>Kurser</h1>
-  </header>
 
-  <nav>
-    <a href="index.html">Start</a>
-    <a href="kurser.html">Kurser</a>
-    <a href="uppgifter.html">Uppgifter</a>
-  </nav>
+<header>
+  <h1>Study Portal</h1>
+</header>
 
-  <div class="container" id="kurser"></div>
+<nav>
+  <a href="index.html">Start</a>
+  <a href="kurser.html" class="active">Kurser</a>
+  <a href="uppgifter.html">Uppgifter</a>
+</nav>
 
-  <script type="module" src="./kurser.js"></script>
+<main class="container">
+  <h2>Kurser</h2>
+
+  <div class="kurs aktiv">
+    Psykologi 1 – <span>Aktiv</span>
+  </div>
+
+  <div class="kurs aktiv">
+    Vård och omsorg – <span>Aktiv</span>
+  </div>
+
+  <div class="kurs ejaktiv">
+    Medicin 1 – <span>Ej aktiv</span>
+  </div>
+
+  <div class="kurs aktiv">
+    Etik och människans livsvillkor – <span>Aktiv</span>
+  </div>
+
+</main>
+
 </body>
+</html>
