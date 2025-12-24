@@ -1,91 +1,91 @@
 <!DOCTYPE html>
 <html lang="sv">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Kurser – Study Portal</title>
-  <link rel="stylesheet" href="body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  background: #f5f5f5;
-}
-
-.header {
-  background: #0b5d3b;
-  color: white;
-  padding: 20px;
-  text-align: center;
-}
-
-.header h1 {
-  margin: 0;
-}
-
-nav {
-  margin-top: 10px;
-}
-
-nav a {
-  color: white;
-  margin: 0 10px;
-  text-decoration: none;
-  font-weight: bold;
-}
-
-nav a.active {
-  text-decoration: underline;
-}
-
-.container {
-  padding: 30px;
-  max-width: 800px;
-  margin: auto;
-  background: white;
-  margin-top: 20px;
-}
-
-.kurs-lista {
-  list-style: none;
-  padding: 0;
-}
-
-.kurs-lista li {
-  padding: 10px;
-  border-bottom: 1px solid #ddd;
-}
-
-.aktiv {
-  color: green;
-  font-weight: bold;
-}
-style.css">
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-<header class="header">
-  <h1>Study Portal</h1>
-  <nav>
-    <a href="index.html">Start</a>
-    <a href="kurser.html" class="active">Kurser</a>
-    <a href="uppgifter.html">Uppgifter</a>
-  </nav>
-</header>
+  <!-- HEADER -->
+  <header class="header">
+    <h1>Study Portal</h1>
+    <nav class="nav">
+      <a href="index.html">Start</a>
+      <a href="kurser.html" class="active">Kurser</a>
+      <a href="uppgifter.html">Uppgifter</a>
+      <a href="https://gleerupsportal.se/min-sida" target="_blank" class="login-link">Logga in</a>
+    </nav>
+  </header>
 
-<main class="container">
-  <h2>Kurser</h2>
+  <!-- MAIN -->
+  <main class="container">
+    <section class="card">
+      <h2>Kurser – 1500 poäng</h2>
+      <p class="intro">
+        Här ser du alla kurser inom Vård- och omsorgsprogrammet.
+        Aktiva kurser är markerade i grönt, kommande i grått.
+      </p>
 
-  <ul class="kurs-lista">
-    <li>Psykologi 1 – <span class="aktiv">Aktiv</span></li>
-    <li>Vård och omsorg – <span class="aktiv">Aktiv</span></li>
-    <li>Hälsa och livsvillkor – <span class="aktiv">Aktiv</span></li>
-    <li>Medicin 1 – <span class="aktiv">Aktiv</span></li>
-    <li>Anatomi och fysiologi 1 – <span class="aktiv">Aktiv</span></li>
-    <li>Social omsorg – <span class="aktiv">Aktiv</span></li>
-    <li>Gerontologi och geriatrik – <span class="aktiv">Aktiv</span></li>
-    <li>Funktionsförmåga och funktionsnedsättning 1 – <span class="aktiv">Aktiv</span></li>
-    <li>Svenska 1 – <span class="aktiv">Aktiv</span></li>
-    <li>Samhällskunskap 1a1 – <span class="aktiv">Aktiv</span></li>
-  </ul>
-</main>
+      <!-- AKTIVA -->
+      <h3>Aktiva kurser</h3>
+      <div class="course-list">
+
+        <div class="course active">
+          <h4>Omvårdnad 2</h4>
+          <p>Fördjupning i vårdarbete, dokumentation och patientnära omvårdnad.</p>
+        </div>
+
+        <div class="course active">
+          <h4>Psykiatri 1</h4>
+          <p>Grundläggande kunskap om psykisk ohälsa och bemötande.</p>
+        </div>
+
+        <div class="course active">
+          <h4>Psykiatri 2</h4>
+          <p>Fördjupning i psykiatriska tillstånd och stödinsatser.</p>
+        </div>
+
+        <div class="course active">
+          <h4>Anatomi och fysiologi 1</h4>
+          <p>Kroppens uppbyggnad och grundläggande funktioner.</p>
+        </div>
+
+        <div class="course active">
+          <h4>Anatomi och fysiologi 2</h4>
+          <p>Fördjupad förståelse för organsystem och samband.</p>
+        </div>
+
+      </div>
+
+      <!-- KOMMANDE -->
+      <h3>Kommande kurser</h3>
+      <div class="course-list">
+
+        <div class="course upcoming">
+          <h4>Funktionsförmåga och funktionsnedsättning 1</h4>
+          <p>Introduktion till funktionsvariationer och stöd i vardagen.</p>
+        </div>
+
+        <div class="course upcoming">
+          <h4>Funktionsförmåga och funktionsnedsättning 2</h4>
+          <p>Fördjupning i hjälpmedel, anpassning och delaktighet.</p>
+        </div>
+
+        <div class="course upcoming">
+          <h4>Gerontologi och geriatrik</h4>
+          <p>Åldrande, äldres hälsa och vård i livets senare skede.</p>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    Study Portal – Undersköterska
+  </footer>
 
 </body>
 </html>

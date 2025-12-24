@@ -1,59 +1,91 @@
 <!DOCTYPE html>
 <html lang="sv">
 <head>
-  <meta charset="UTF-8">
-  <title>Study Portal</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #f4f6f5;
-    }
-    header {
-      background: #1b8f6a;
-      color: white;
-      padding: 24px;
-      text-align: center;
-      font-size: 28px;
-      font-weight: bold;
-    }
-    nav {
-      background: #2e7d32;
-      padding: 12px;
-      text-align: center;
-    }
-    nav a {
-      color: white;
-      margin: 0 15px;
-      text-decoration: none;
-      font-weight: bold;
-    }
-    nav a:hover {
-      text-decoration: underline;
-    }
-    .container {
-      max-width: 900px;
-      margin: 40px auto;
-      text-align: center;
-      font-size: 18px;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <title>Study Portal – Undersköterska</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<header>Study Portal</header>
+<header class="header">
+    <h1>Study Portal</h1>
+    <nav class="nav">
+        <a href="index.html" class="active">Start</a>
+        <a href="kurser.html">Kurser</a>
+        <a href="uppgifter.html">Uppgifter</a>
 
-<nav>
-  <a href="index.html">Start</a>
-  <a href="kurser.html">Kurser</a>
-  <a href="uppgifter.html">Uppgifter</a>
-</nav>
+        <a class="login-link"
+           href="https://gleerupsportal.se/min-sida"
+           target="_blank">
+           Logga in
+        </a>
+    </nav>
+</header>
 
-<div class="container">
-  <p>Välkommen till Study Portal.</p>
-</div>
+<main class="container">
+
+    <!-- Kort om utbildningen -->
+    <section class="card">
+        <h2>Kort om utbildningen</h2>
+        <p>
+            Undersköterskeutbildningen ger dig kunskap och praktiska färdigheter
+            inom vård och omsorg. Du lär dig bemötande, etik, omvårdnad,
+            psykiatri och hur du stöttar människor i olika livssituationer.
+        </p>
+        <p>
+            Den här studieportalen är skapad för att samla kurser, uppgifter
+            och viktiga länkar på ett ställe – enkelt och tydligt.
+        </p>
+    </section>
+
+    <!-- Viktiga länkar -->
+    <section>
+        <h2>Viktiga länkar</h2>
+
+        <div class="cards">
+
+            <div class="card green clickable"
+                 onclick="window.open('https://gleerupsportal.se/min-sida','_blank')">
+                <h3>Gleerups – Logga in</h3>
+                <p>
+                    Logga in för att komma åt dina digitala kursböcker
+                    och läromedel som används i utbildningen.
+                </p>
+            </div>
+
+            <div class="card blue clickable"
+                 onclick="window.open('https://www.socialstyrelsen.se','_blank')">
+                <h3>Socialstyrelsen</h3>
+                <p>
+                    Riktlinjer och regler inom vård och omsorg.
+                </p>
+            </div>
+
+            <div class="card orange clickable"
+                 onclick="window.open('https://arbetsformedlingen.se','_blank')">
+                <h3>Arbetsförmedlingen</h3>
+                <p>
+                    Yrkesinformation och framtida jobbmöjligheter.
+                </p>
+            </div>
+
+            <div class="card purple clickable"
+                 onclick="window.open('https://vardforbundet.se','_blank')">
+                <h3>Vårdförbundet</h3>
+                <p>
+                    Yrkesroller, arbetsmiljö och villkor inom vården.
+                </p>
+            </div>
+
+        </div>
+    </section>
+
+</main>
+
+<footer class="footer">
+    Study Portal – Undersköterska
+</footer>
 
 </body>
 </html>
-

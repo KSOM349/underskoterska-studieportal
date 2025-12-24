@@ -2,7 +2,7 @@
 <html lang="sv">
 <head>
   <meta charset="UTF-8" />
-  <title>Uppgifter – Grupp A</title>
+  <title>Uppgifter – Study Portal</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <style>
@@ -46,10 +46,6 @@
       margin-bottom: 30px;
     }
 
-    h2 {
-      margin-top: 0;
-    }
-
     label {
       display: block;
       margin-top: 16px;
@@ -63,10 +59,6 @@
       border-radius: 6px;
       border: 1px solid #ccc;
       font-size: 15px;
-    }
-
-    textarea {
-      resize: vertical;
     }
 
     .row {
@@ -88,7 +80,6 @@
     .btn-clear { background: #c62828; }
     .btn-add { background: #1e88e5; }
 
-    /* Members */
     .member-row {
       display: flex;
       gap: 8px;
@@ -112,14 +103,6 @@
       border-radius: 6px;
     }
 
-    .member-chip button {
-      background: none;
-      border: none;
-      color: #c62828;
-      font-size: 16px;
-      cursor: pointer;
-    }
-
     footer {
       margin-top: 30px;
       padding: 16px;
@@ -141,7 +124,6 @@
 
 <div class="container">
 
-  <!-- GROUP -->
   <div class="card">
     <h2>Våra uppgifter – Grupp A</h2>
 
@@ -154,7 +136,6 @@
     </div>
   </div>
 
-  <!-- MEMBERS -->
   <div class="card">
     <h2>Gruppmedlemmar</h2>
 
@@ -168,15 +149,14 @@
     <div id="membersList" class="members"></div>
   </div>
 
-  <!-- ASSIGNMENT -->
   <div class="card">
     <h2>Uppgift</h2>
 
     <label>Uppgiftens namn</label>
-    <input type="text" />
+    <input id="taskName" type="text" />
 
     <label>Kurs</label>
-    <select>
+    <select id="course">
       <option>Social omsorg 1</option>
       <option>Social omsorg 2</option>
       <option>Psykiatri 1</option>
@@ -186,57 +166,56 @@
     </select>
 
     <label>Datum</label>
-    <input type="date" />
+    <input id="date" type="date" />
 
     <label>Deadline</label>
-    <input type="date" />
+    <input id="deadline" type="date" />
 
     <label>Anteckningar</label>
-    <textarea rows="4"></textarea>
+    <textarea id="notes" rows="4"></textarea>
 
     <label>Ladda upp PDF</label>
     <input type="file" />
   </div>
 
-  <!-- TEACHER -->
   <div class="card">
     <h2>Skicka till läraren</h2>
     <p>zeinamesso@integrerar.se</p>
-    <a 
-  href="https://mail.google.com/mail/?view=cm&fs=1&to=zeinamesso@integrerar.se"
-  target="_blank"
->
-  Open email (Gmail)
-</a>
-
+    <a href="https://mail.google.com/mail/?view=cm&fs=1&to=zeinamesso@integrerar.se" target="_blank">
+      Open email (Gmail)
+    </a>
   </div>
 
 </div>
 
 <footer>Study Portal</footer>
 
-<!-- SCRIPT -->
 <script type="module">
-  import { db } from "./firebase.js";
-  import { doc, setDoc } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+  import { getFirestore, doc, setDoc } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+
+  const firebaseConfig = {
+    apiKey: "PUT_YOUR_API_KEY",
+    authDomain: "study-portal-underskoterska.firebaseapp.com",
+    projectId: "study-portal-underskoterska",
+  };
+
+  const app = initializeApp(firebaseConfig);
+  const db = getFirestore(app);
 
   const members = [];
 
   window.addMember = function () {
-    const name = memberName.value.trim();
-    const email = memberEmail.value.trim();
-    const phone = memberPhone.value.trim();
-    if (!name) return;
-
-    const member = { name, email, phone };
-    members.push(member);
+    if (!memberName.value) return;
+    members.push({
+      name: memberName.value,
+      email: memberEmail.value,
+      phone: memberPhone.value
+    });
 
     const div = document.createElement("div");
     div.className = "member-chip";
-    div.innerHTML = `
-      <span>${name}${email ? " | " + email : ""}${phone ? " | " + phone : ""}</span>
-      <button onclick="this.parentElement.remove()">✕</button>
-    `;
+    div.textContent = memberName.value;
     membersList.appendChild(div);
 
     memberName.value = "";
@@ -245,16 +224,22 @@
   };
 
   window.saveGroup = async function () {
-    const name = groupName.value.trim();
-    if (!name) return alert("Group name required");
+    if (!groupName.value) return alert("Gruppnamn saknas");
 
-    await setDoc(doc(db, "groups", name), {
-      name,
+    await setDoc(doc(db, "uppgifter", groupName.value), {
+      groupName: groupName.value,
       members,
+      task: {
+        name: taskName.value,
+        course: course.value,
+        date: date.value,
+        deadline: deadline.value,
+        notes: notes.value
+      },
       createdAt: new Date()
     });
 
-    alert("Saved");
+    alert("Sparat i Firebase ✅");
   };
 
   window.clearGroup = function () {
@@ -266,4 +251,3 @@
 
 </body>
 </html>
-
